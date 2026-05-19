@@ -119,7 +119,7 @@ export default function Home() {
               </h1>
 
               <p className="text-[9px] lg:text-sm tracking-[0.35em] text-white/40 mt-1 lg:mt-2">
-                DIGITAL STUDIO
+                DIGITAL SOLUTIONS
               </p>
             </div>
 
