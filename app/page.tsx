@@ -2,12 +2,15 @@
 
 import { useEffect, useState } from "react"
 
+type Language = "nl" | "en"
+
 export default function Home() {
+
   const [language, setLanguage] = useState<Language>("nl")
   const [cursor, setCursor] = useState({ x: 0, y: 0 })
   const [scroll, setScroll] = useState(0)
 
-  type Language = "nl" | "en"const t = {
+  const t = {
     nl: {
       badge: "Creatieve Digitale Oplossingen",
       title1: "MODERNE",
