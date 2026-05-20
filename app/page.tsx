@@ -141,7 +141,8 @@ export default function Home() {
       {/* HERO */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 lg:pt-32 pb-24">
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        {/* ALTERAÇÃO DO ESPAÇAMENTO */}
+        <div className="grid lg:grid-cols-[1fr_650px] gap-28 items-center">
 
           {/* LEFT */}
           <div>
@@ -196,7 +197,8 @@ export default function Home() {
               className="
                 relative
                 w-full
-                max-w-[620px]
+                max-w-[650px]
+                ml-auto
                 rounded-[42px]
                 border
                 border-[#b85cff]/40
