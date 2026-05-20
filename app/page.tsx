@@ -46,12 +46,16 @@ export default function Home() {
 
       {/* BACKGROUND */}
       <div className="fixed inset-0 -z-10 bg-black">
-        <div className="absolute top-[-200px] left-[-200px] w-[700px] h-[700px] bg-purple-700/20 blur-[180px] rounded-full" />
-        <div className="absolute bottom-[-200px] right-[-200px] w-[700px] h-[700px] bg-fuchsia-700/10 blur-[180px] rounded-full" />
+
+        <div className="absolute top-[-250px] left-[-250px] w-[800px] h-[800px] bg-purple-700/20 blur-[180px] rounded-full" />
+
+        <div className="absolute bottom-[-250px] right-[-250px] w-[800px] h-[800px] bg-fuchsia-700/10 blur-[180px] rounded-full" />
+
       </div>
 
       {/* HEADER */}
       <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/5 bg-black/40">
+
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
 
           {/* LOGO */}
@@ -64,6 +68,7 @@ export default function Home() {
             />
 
             <div>
+
               <h1 className="text-4xl lg:text-5xl font-black tracking-[0.18em] leading-none">
                 NOMA
               </h1>
@@ -71,6 +76,7 @@ export default function Home() {
               <p className="text-[11px] tracking-[0.45em] text-white/40 mt-2">
                 DIGITAL SOLUTIONS
               </p>
+
             </div>
 
           </div>
@@ -129,6 +135,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </header>
 
       {/* HERO */}
@@ -181,23 +188,35 @@ export default function Home() {
           {/* RIGHT IMAGE */}
           <div className="relative flex justify-center lg:justify-end">
 
-            {/* LIGHT */}
+            {/* LIGHT EFFECT */}
             <div className="absolute inset-0 bg-purple-700/20 blur-[140px] rounded-full" />
 
-            {/* IMAGE */}
-            <div className="relative w-full max-w-[760px]">
+            {/* IMAGE FRAME */}
+            <div
+              className="
+                relative
+                w-full
+                max-w-[620px]
+                rounded-[42px]
+                border
+                border-[#b85cff]/40
+                bg-gradient-to-br
+                from-[#1b0624]
+                to-[#120214]
+                p-3
+                shadow-[0_0_80px_rgba(168,85,247,0.22)]
+              "
+            >
 
               <img
                 src="/hero.png"
                 alt="Noma Hero"
                 className="
                   w-full
-                  h-auto
+                  h-[640px]
                   object-cover
-                  rounded-[38px]
-                  border
-                  border-white/10
-                  shadow-[0_0_80px_rgba(168,85,247,0.18)]
+                  object-center
+                  rounded-[32px]
                 "
               />
 
@@ -285,15 +304,11 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-8">
 
           <div className="group min-h-[320px] rounded-[40px] bg-gradient-to-br from-purple-900/50 to-black border border-white/10 flex items-center justify-center text-5xl font-black hover:scale-[1.02] transition">
-
             JC Cars
-
           </div>
 
           <div className="group min-h-[320px] rounded-[40px] bg-gradient-to-br from-fuchsia-900/20 to-black border border-white/10 flex items-center justify-center text-5xl font-black hover:scale-[1.02] transition">
-
             NOMA
-
           </div>
 
         </div>
