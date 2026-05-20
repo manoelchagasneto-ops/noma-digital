@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 type Language = "nl" | "en"
 
 export default function Home() {
-
   const [language, setLanguage] = useState<Language>("nl")
   const [cursor, setCursor] = useState({ x: 0, y: 0 })
   const [scroll, setScroll] = useState(0)
@@ -151,7 +150,7 @@ export default function Home() {
 
           </nav>
 
-          {/* LANG */}
+          {/* LANGUAGE */}
           <div className="flex items-center gap-1 lg:gap-2 border border-white/10 bg-white/5 rounded-full p-1">
 
             <button
@@ -184,10 +183,10 @@ export default function Home() {
       {/* HERO */}
       <section className="min-h-screen flex items-center pt-32 lg:pt-40">
 
-        <div className="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center w-full">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8 grid lg:grid-cols-2 gap-20 items-center w-full">
 
           {/* LEFT */}
-          <div className="order-2 lg:order-1">
+          <div>
 
             <div className="inline-flex px-5 lg:px-6 py-2 lg:py-3 rounded-full border border-purple-500/20 bg-purple-500/10 text-purple-200 tracking-[0.2em] text-xs lg:text-sm mb-8 lg:mb-10">
               {t[language].badge}
@@ -229,18 +228,24 @@ export default function Home() {
 
           </div>
 
-          {/* RIGHT */}
-          <div className="relative flex justify-center order-1 lg:order-2">
+          {/* RIGHT IMAGE */}
+          <div className="relative flex justify-center">
 
-            <div className="absolute w-[350px] lg:w-[650px] h-[350px] lg:h-[650px] rounded-full bg-purple-600/20 blur-[120px] lg:blur-[180px]" />
+            <div className="absolute w-[650px] h-[650px] rounded-full bg-purple-600/20 blur-[180px]" />
 
-            <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[540px] h-[480px] lg:h-[700px] rounded-[36px] lg:rounded-[50px] border border-white/10 bg-white/[0.04] backdrop-blur-3xl overflow-hidden shadow-[0_0_100px_rgba(168,85,247,0.12)] flex items-end justify-center">
+            {/* OUTSIDE FRAME */}
+            <div className="relative p-8 bg-purple-700/20 border border-purple-500/10 rounded-[6px]">
 
-              <img
-                src="/hero.png"
-                alt="Hero"
-                className="h-[85%] lg:h-[92%] object-contain object-bottom relative z-10 hover:scale-[1.02] transition duration-700"
-              />
+              {/* INSIDE FRAME */}
+              <div className="relative w-full max-w-[250px] lg:max-w-[300px] h-[520px] lg:h-[620px] rounded-[34px] border border-white/10 bg-[#120818] overflow-hidden flex items-center justify-center">
+
+                <img
+                  src="/hero.png"
+                  alt="Hero"
+                  className="w-[88%] h-[88%] object-cover rounded-[24px]"
+                />
+
+              </div>
 
             </div>
 
@@ -259,16 +264,18 @@ export default function Home() {
         <div className="mb-16 lg:mb-20">
 
           <p className="text-purple-400 tracking-[0.3em] uppercase text-xs lg:text-sm">
-            {t[language].services}
+            Portfolio
           </p>
 
           <h3 className="text-4xl lg:text-6xl font-black mt-5 lg:mt-6 max-w-3xl leading-tight">
-            {t[language].servicesTitle}
+            Creatieve oplossingen
+            <br />
+            voor moderne merken.
           </h3>
 
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
           {[
             {
@@ -285,20 +292,25 @@ export default function Home() {
               title: "Digital Design",
               desc: "Ads, visuals and creative direction with cinematic impact.",
             },
+
+            {
+              title: "Accounting",
+              desc: "Professional accounting services for modern companies.",
+            },
           ].map((item) => (
 
             <div
               key={item.title}
-              className="rounded-[30px] lg:rounded-[36px] border border-white/10 bg-white/[0.03] p-8 lg:p-10 hover:-translate-y-2 transition duration-500"
+              className="rounded-[30px] border border-white/10 bg-white/[0.03] p-8 hover:-translate-y-2 transition duration-500"
             >
 
-              <div className="w-14 lg:w-16 h-14 lg:h-16 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-purple-600 mb-6 lg:mb-8" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-fuchsia-500 to-purple-600 mb-8" />
 
-              <h4 className="text-2xl lg:text-3xl font-bold">
+              <h4 className="text-2xl font-bold">
                 {item.title}
               </h4>
 
-              <p className="mt-4 lg:mt-6 text-white/60 leading-relaxed">
+              <p className="mt-4 text-white/60 leading-relaxed text-sm">
                 {item.desc}
               </p>
 
@@ -330,43 +342,35 @@ export default function Home() {
 
         <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
 
-          <div className="rounded-[32px] lg:rounded-[40px] border border-white/10 bg-white/[0.03] overflow-hidden">
-
-            <div className="h-[260px] lg:h-[420px] bg-gradient-to-br from-fuchsia-600/20 to-purple-700/20 flex items-center justify-center text-3xl lg:text-5xl font-black">
-              JC Cars
-            </div>
-
+          <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-fuchsia-700/30 to-purple-900/10 h-[320px] flex items-center justify-center text-5xl font-black">
+            JC Cars
           </div>
 
-          <div className="rounded-[32px] lg:rounded-[40px] border border-white/10 bg-white/[0.03] overflow-hidden">
-
-            <div className="h-[260px] lg:h-[420px] bg-gradient-to-br from-purple-600/20 to-black flex items-center justify-center text-3xl lg:text-5xl font-black">
-              NOMA
-            </div>
-
+          <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-purple-700/20 to-black h-[320px] flex items-center justify-center text-5xl font-black">
+            NOMA
           </div>
 
         </div>
 
       </section>
 
-      {/* CONTACT */}
+      {/* CTA */}
       <section
         id="contact"
         className="max-w-5xl mx-auto px-4 lg:px-8 py-24 lg:py-32"
       >
 
-        <div className="rounded-[36px] lg:rounded-[50px] border border-white/10 bg-gradient-to-br from-fuchsia-600/10 to-purple-700/10 p-8 lg:p-16 text-center">
+        <div className="rounded-[40px] border border-white/10 bg-gradient-to-br from-fuchsia-700/20 to-purple-900/10 p-10 lg:p-20 text-center">
 
           <h3 className="text-4xl lg:text-6xl font-black leading-tight">
             {t[language].cta}
           </h3>
 
-          <p className="mt-6 lg:mt-8 text-white/60 max-w-2xl mx-auto text-base lg:text-lg leading-relaxed">
+          <p className="mt-8 text-white/60 max-w-2xl mx-auto">
             Modern branding, cinematic visuals and premium digital presence for ambitious businesses.
           </p>
 
-          <button className="mt-10 lg:mt-12 px-8 lg:px-10 py-4 lg:py-5 rounded-full bg-gradient-to-r from-fuchsia-500 to-purple-600 text-base lg:text-lg font-semibold hover:scale-105 transition">
+          <button className="mt-10 px-10 py-5 rounded-full bg-gradient-to-r from-fuchsia-500 to-purple-600 font-semibold hover:scale-105 transition">
             {t[language].contact}
           </button>
 
@@ -375,7 +379,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 py-8 lg:py-10 text-center text-white/40 text-xs lg:text-sm px-4">
+      <footer className="border-t border-white/10 py-10 text-center text-white/40 text-sm">
         © 2026 NOMA DIGITAL STUDIO • BELGIUM
       </footer>
 
