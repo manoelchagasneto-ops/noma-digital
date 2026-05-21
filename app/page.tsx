@@ -59,21 +59,20 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-[#050505] text-white overflow-hidden min-h-screen">
+    <main className="bg-black text-white overflow-hidden min-h-screen">
 
       {/* BACKGROUND */}
-      <div className="fixed inset-0 -z-10 bg-black" />
+      <div className="fixed inset-0 -z-10 bg-[#040404]" />
 
-      {/* TOP GLOW */}
-      <div className="fixed top-[-350px] left-[-250px] w-[700px] h-[700px] rounded-full bg-fuchsia-700/20 blur-[180px] -z-10" />
+      {/* LIGHTS */}
+      <div className="fixed top-[-300px] left-[-250px] w-[700px] h-[700px] rounded-full bg-fuchsia-700/20 blur-[180px] -z-10" />
 
-      {/* BOTTOM GLOW */}
-      <div className="fixed bottom-[-350px] right-[-250px] w-[700px] h-[700px] rounded-full bg-purple-700/20 blur-[180px] -z-10" />
+      <div className="fixed bottom-[-300px] right-[-250px] w-[700px] h-[700px] rounded-full bg-purple-700/20 blur-[180px] -z-10" />
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-black/35 border-b border-white/5">
 
-        <div className="max-w-[1500px] mx-auto px-8 h-[84px] flex items-center justify-between">
+        <div className="max-w-[1450px] mx-auto px-8 h-[82px] flex items-center justify-between">
 
           {/* LOGO */}
           <div className="flex items-center gap-4">
@@ -81,15 +80,15 @@ export default function Home() {
             <img
               src="/logo.png"
               alt="Noma"
-              className="w-[78px] object-contain"
+              className="w-[72px] object-contain"
             />
 
             <div>
-              <h1 className="text-[44px] font-black tracking-[0.24em] leading-none">
+              <h1 className="text-[42px] leading-none tracking-[0.24em] font-black">
                 NOMA
               </h1>
 
-              <p className="text-[9px] tracking-[0.60em] text-white/35 mt-1">
+              <p className="text-[9px] tracking-[0.55em] text-white/35 mt-1">
                 DIGITAL SOLUTIONS
               </p>
             </div>
@@ -100,27 +99,27 @@ export default function Home() {
 
             <a
               href="#services"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300 text-sm"
             >
               Diensten
             </a>
 
             <a
               href="#portfolio"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300 text-sm"
             >
               Portfolio
             </a>
 
             <a
               href="#contact"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300 text-sm"
             >
               Contact
             </a>
           </div>
 
-          {/* LANGUAGE */}
+          {/* LANG */}
           <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1">
 
             <button
@@ -149,135 +148,128 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-[1500px] mx-auto px-8 pt-[125px]">
+      <section className="relative max-w-[1450px] mx-auto px-8 pt-[120px] min-h-[900px]">
 
-        <div className="grid lg:grid-cols-[1fr_0.78fr] gap-[5px] items-start">
+        {/* SOCIAL */}
+        <div className="flex items-center gap-3 mb-8">
 
-          {/* LEFT */}
-          <div className="max-w-[760px] pt-[25px]">
+          <a
+            href="#"
+            className="
+              w-11
+              h-11
+              rounded-full
+              bg-fuchsia-600
+              flex
+              items-center
+              justify-center
+              shadow-[0_0_25px_rgba(217,70,239,0.65)]
+              hover:scale-105
+              transition-all
+              duration-300
+            "
+          >
+            <Facebook size={17} />
+          </a>
 
-            {/* SOCIAL ICONS */}
-            <div className="flex items-center gap-3 mb-6">
+          <a
+            href="#"
+            className="
+              w-11
+              h-11
+              rounded-full
+              bg-fuchsia-600
+              flex
+              items-center
+              justify-center
+              shadow-[0_0_25px_rgba(217,70,239,0.65)]
+              hover:scale-105
+              transition-all
+              duration-300
+            "
+          >
+            <Instagram size={17} />
+          </a>
+        </div>
 
-              <a
-                href="#"
-                className="
-                  w-11
-                  h-11
-                  rounded-full
-                  bg-fuchsia-600
-                  flex
-                  items-center
-                  justify-center
-                  shadow-[0_0_25px_rgba(217,70,239,0.55)]
-                  hover:scale-105
-                  transition-all
-                  duration-300
-                "
-              >
-                <Facebook size={17} />
-              </a>
+        {/* HERO CONTENT */}
+        <div className="relative z-10 max-w-[760px]">
 
-              <a
-                href="#"
-                className="
-                  w-11
-                  h-11
-                  rounded-full
-                  bg-fuchsia-600
-                  flex
-                  items-center
-                  justify-center
-                  shadow-[0_0_25px_rgba(217,70,239,0.55)]
-                  hover:scale-105
-                  transition-all
-                  duration-300
-                "
-              >
-                <Instagram size={17} />
-              </a>
-            </div>
-
-            {/* BADGE */}
-            <div className="inline-flex px-6 py-3 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-[11px] tracking-[0.35em] text-white/90">
-              {t[language].badge}
-            </div>
-
-            {/* TITLE */}
-            <h2 className="mt-6 text-[74px] xl:text-[90px] leading-[0.83] tracking-[-0.06em] font-black">
-
-              {t[language].title1}
-              <br />
-
-              {t[language].title2}
-              <br />
-
-              {t[language].title3}
-              <br />
-
-              <span className="bg-gradient-to-r from-purple-300 to-fuchsia-500 bg-clip-text text-transparent">
-                {t[language].premium}
-              </span>
-            </h2>
-
-            {/* DESCRIPTION */}
-            <p className="mt-7 max-w-[570px] text-white/55 text-[17px] leading-[1.9]">
-              {t[language].description}
-            </p>
-
-            {/* BUTTONS */}
-            <div className="flex gap-4 mt-9">
-
-              <button className="px-9 py-4 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_40px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300 font-semibold">
-                {t[language].start}
-              </button>
-
-              <button className="px-9 py-4 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300">
-                {t[language].portfolio}
-              </button>
-            </div>
+          {/* BADGE */}
+          <div className="inline-flex px-6 py-3 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-[11px] tracking-[0.35em] text-white/90">
+            {t[language].badge}
           </div>
 
-          {/* RIGHT */}
-          <div className="relative flex justify-end">
+          {/* TITLE */}
+          <h2 className="mt-7 text-[82px] xl:text-[102px] leading-[0.82] tracking-[-0.06em] font-black">
 
-            {/* MAIN IMAGE CONTAINER */}
-            <div className="relative mt-[140px]">
+            {t[language].title1}
+            <br />
 
-              {/* STRONG GLOW */}
-              <div className="absolute inset-0 bg-fuchsia-600/30 blur-[90px] scale-[1.08]" />
+            {t[language].title2}
+            <br />
 
-              {/* SECONDARY GLOW */}
-              <div className="absolute -inset-6 rounded-[45px] border border-fuchsia-500/20" />
+            {t[language].title3}
+            <br />
 
-              {/* IMAGE BOX */}
-              <div
-                className="
-                  relative
-                  w-[520px]
-                  h-[500px]
-                  rounded-[42px]
-                  overflow-hidden
-                  border
-                  border-fuchsia-500/30
-                  bg-[#120312]
-                  shadow-[0_0_70px_rgba(217,70,239,0.28)]
-                "
-              >
+            <span className="bg-gradient-to-r from-purple-300 via-fuchsia-400 to-fuchsia-600 bg-clip-text text-transparent">
+              {t[language].premium}
+            </span>
+          </h2>
 
-                <img
-                  src="/hero.png"
-                  alt="Hero"
-                  className="
-                    w-full
-                    h-full
-                    object-cover
-                    object-center
-                    scale-[1.03]
-                  "
-                />
-              </div>
-            </div>
+          {/* DESCRIPTION */}
+          <p className="mt-8 max-w-[520px] text-white/55 text-[17px] leading-[1.9]">
+            {t[language].description}
+          </p>
+
+          {/* BUTTONS */}
+          <div className="flex gap-4 mt-10">
+
+            <button className="px-9 py-4 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_40px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300 font-semibold">
+              {t[language].start}
+            </button>
+
+            <button className="px-9 py-4 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300">
+              {t[language].portfolio}
+            </button>
+          </div>
+        </div>
+
+        {/* IMAGE AREA */}
+        <div className="absolute right-[40px] top-[230px]">
+
+          {/* OUTER GLOW */}
+          <div className="absolute inset-0 bg-fuchsia-600/30 blur-[120px] scale-[1.15]" />
+
+          {/* SECOND GLOW */}
+          <div className="absolute -inset-5 rounded-[42px] border border-fuchsia-500/20" />
+
+          {/* IMAGE BOX */}
+          <div
+            className="
+              relative
+              w-[500px]
+              h-[470px]
+              rounded-[38px]
+              overflow-hidden
+              border
+              border-fuchsia-500/30
+              bg-[#120312]
+              shadow-[0_0_90px_rgba(217,70,239,0.28)]
+            "
+          >
+
+            <img
+              src="/hero.png"
+              alt="Hero"
+              className="
+                w-full
+                h-full
+                object-cover
+                object-center
+                scale-[1.02]
+              "
+            />
           </div>
         </div>
       </section>
@@ -285,14 +277,14 @@ export default function Home() {
       {/* SERVICES */}
       <section
         id="services"
-        className="max-w-[1500px] mx-auto px-8 pt-24"
+        className="max-w-[1450px] mx-auto px-8 pt-8"
       >
 
         <p className="text-fuchsia-400 tracking-[0.35em] uppercase text-sm">
           Diensten
         </p>
 
-        <h3 className="text-[56px] leading-[1.02] font-black mt-5 max-w-[820px]">
+        <h3 className="text-[58px] leading-[1.02] font-black mt-5 max-w-[850px]">
           {t[language].servicesTitle}
         </h3>
 
@@ -351,14 +343,14 @@ export default function Home() {
       {/* PORTFOLIO */}
       <section
         id="portfolio"
-        className="max-w-[1500px] mx-auto px-8 pt-24"
+        className="max-w-[1450px] mx-auto px-8 pt-24"
       >
 
         <p className="text-fuchsia-400 tracking-[0.35em] uppercase text-sm">
           Portfolio
         </p>
 
-        <h3 className="text-[56px] leading-[1.02] font-black mt-5">
+        <h3 className="text-[58px] leading-[1.02] font-black mt-5">
           Selected Projects
         </h3>
 
