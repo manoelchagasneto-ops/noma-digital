@@ -173,7 +173,7 @@ export default function Home() {
             {/* glow */}
             <div className="absolute inset-0 bg-fuchsia-700/20 blur-[120px]" />
 
-            {/* FOTO ALINHADA COM TOPO E BASE DOS BOTÕES */}
+            {/* FOTO MAIS BAIXA */}
             <div
               className="
                 relative
@@ -184,7 +184,7 @@ export default function Home() {
                 bg-[#120312]
                 w-full
                 max-w-[760px]
-                mt-[6px]
+                mt-[70px]
               "
             >
 
