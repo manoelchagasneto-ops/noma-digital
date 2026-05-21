@@ -64,26 +64,28 @@ export default function Home() {
       {/* BACKGROUND */}
       <div className="fixed inset-0 -z-10 bg-black" />
 
-      <div className="fixed top-[-300px] left-[-250px] w-[700px] h-[700px] bg-fuchsia-700/20 blur-[190px] rounded-full -z-10" />
+      {/* TOP GLOW */}
+      <div className="fixed top-[-350px] left-[-250px] w-[700px] h-[700px] rounded-full bg-fuchsia-700/20 blur-[180px] -z-10" />
 
-      <div className="fixed bottom-[-300px] right-[-250px] w-[700px] h-[700px] bg-purple-700/20 blur-[190px] rounded-full -z-10" />
+      {/* BOTTOM GLOW */}
+      <div className="fixed bottom-[-350px] right-[-250px] w-[700px] h-[700px] rounded-full bg-purple-700/20 blur-[180px] -z-10" />
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-black/40 border-b border-white/5">
+      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-2xl bg-black/35 border-b border-white/5">
 
-        <div className="max-w-[1500px] mx-auto px-8 h-[82px] flex items-center justify-between">
+        <div className="max-w-[1500px] mx-auto px-8 h-[84px] flex items-center justify-between">
 
-          {/* LEFT */}
+          {/* LOGO */}
           <div className="flex items-center gap-4">
 
             <img
               src="/logo.png"
               alt="Noma"
-              className="w-[70px] object-contain"
+              className="w-[78px] object-contain"
             />
 
             <div>
-              <h1 className="text-[42px] leading-none font-black tracking-[0.24em]">
+              <h1 className="text-[44px] font-black tracking-[0.24em] leading-none">
                 NOMA
               </h1>
 
@@ -98,28 +100,28 @@ export default function Home() {
 
             <a
               href="#services"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300 text-sm"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
             >
               Diensten
             </a>
 
             <a
               href="#portfolio"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300 text-sm"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
             >
               Portfolio
             </a>
 
             <a
               href="#contact"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300 text-sm"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
             >
               Contact
             </a>
           </div>
 
           {/* LANGUAGE */}
-          <div className="flex items-center gap-2 border border-white/10 rounded-full p-1 bg-white/[0.03]">
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1">
 
             <button
               onClick={() => setLanguage("nl")}
@@ -147,38 +149,62 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-[1500px] mx-auto px-8 pt-[120px]">
+      <section className="max-w-[1500px] mx-auto px-8 pt-[125px]">
 
-        <div className="grid lg:grid-cols-[0.95fr_0.82fr] gap-[10px] items-start">
+        <div className="grid lg:grid-cols-[1fr_0.78fr] gap-[5px] items-start">
 
           {/* LEFT */}
-          <div className="pt-[15px] max-w-[760px]">
+          <div className="max-w-[760px] pt-[25px]">
 
-            {/* SOCIAL */}
-            <div className="flex items-center gap-3 mb-5">
+            {/* SOCIAL ICONS */}
+            <div className="flex items-center gap-3 mb-6">
 
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-fuchsia-600 flex items-center justify-center shadow-[0_0_20px_rgba(217,70,239,0.45)]"
+                className="
+                  w-11
+                  h-11
+                  rounded-full
+                  bg-fuchsia-600
+                  flex
+                  items-center
+                  justify-center
+                  shadow-[0_0_25px_rgba(217,70,239,0.55)]
+                  hover:scale-105
+                  transition-all
+                  duration-300
+                "
               >
-                <Facebook size={16} />
+                <Facebook size={17} />
               </a>
 
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-fuchsia-600 flex items-center justify-center shadow-[0_0_20px_rgba(217,70,239,0.45)]"
+                className="
+                  w-11
+                  h-11
+                  rounded-full
+                  bg-fuchsia-600
+                  flex
+                  items-center
+                  justify-center
+                  shadow-[0_0_25px_rgba(217,70,239,0.55)]
+                  hover:scale-105
+                  transition-all
+                  duration-300
+                "
               >
-                <Instagram size={16} />
+                <Instagram size={17} />
               </a>
             </div>
 
             {/* BADGE */}
-            <div className="inline-flex px-6 py-3 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-[11px] tracking-[0.32em] text-white/90">
+            <div className="inline-flex px-6 py-3 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-[11px] tracking-[0.35em] text-white/90">
               {t[language].badge}
             </div>
 
             {/* TITLE */}
-            <h2 className="mt-6 text-[78px] xl:text-[88px] leading-[0.84] tracking-[-0.06em] font-black">
+            <h2 className="mt-6 text-[74px] xl:text-[90px] leading-[0.83] tracking-[-0.06em] font-black">
 
               {t[language].title1}
               <br />
@@ -195,14 +221,14 @@ export default function Home() {
             </h2>
 
             {/* DESCRIPTION */}
-            <p className="mt-7 max-w-[580px] text-white/55 text-[17px] leading-[1.9]">
+            <p className="mt-7 max-w-[570px] text-white/55 text-[17px] leading-[1.9]">
               {t[language].description}
             </p>
 
             {/* BUTTONS */}
             <div className="flex gap-4 mt-9">
 
-              <button className="px-9 py-4 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold shadow-[0_0_35px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300">
+              <button className="px-9 py-4 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_40px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300 font-semibold">
                 {t[language].start}
               </button>
 
@@ -212,39 +238,45 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
+          {/* RIGHT */}
           <div className="relative flex justify-end">
 
-            {/* glow */}
-            <div className="absolute inset-0 bg-fuchsia-700/20 blur-[120px]" />
+            {/* MAIN IMAGE CONTAINER */}
+            <div className="relative mt-[140px]">
 
-            {/* IMAGE CARD */}
-            <div
-              className="
-                relative
-                mt-[120px]
-                w-full
-                max-w-[560px]
-                rounded-[38px]
-                overflow-hidden
-                border
-                border-fuchsia-500/25
-                bg-[#120312]
-                shadow-[0_0_70px_rgba(217,70,239,0.20)]
-              "
-            >
+              {/* STRONG GLOW */}
+              <div className="absolute inset-0 bg-fuchsia-600/30 blur-[90px] scale-[1.08]" />
 
-              <img
-                src="/hero.png"
-                alt="Hero"
+              {/* SECONDARY GLOW */}
+              <div className="absolute -inset-6 rounded-[45px] border border-fuchsia-500/20" />
+
+              {/* IMAGE BOX */}
+              <div
                 className="
-                  w-full
-                  h-[540px]
-                  object-cover
-                  object-center
-                  scale-[1.02]
+                  relative
+                  w-[520px]
+                  h-[500px]
+                  rounded-[42px]
+                  overflow-hidden
+                  border
+                  border-fuchsia-500/30
+                  bg-[#120312]
+                  shadow-[0_0_70px_rgba(217,70,239,0.28)]
                 "
-              />
+              >
+
+                <img
+                  src="/hero.png"
+                  alt="Hero"
+                  className="
+                    w-full
+                    h-full
+                    object-cover
+                    object-center
+                    scale-[1.03]
+                  "
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -260,7 +292,7 @@ export default function Home() {
           Diensten
         </p>
 
-        <h3 className="text-[58px] leading-[1.02] font-black mt-5 max-w-[820px]">
+        <h3 className="text-[56px] leading-[1.02] font-black mt-5 max-w-[820px]">
           {t[language].servicesTitle}
         </h3>
 
@@ -326,7 +358,7 @@ export default function Home() {
           Portfolio
         </p>
 
-        <h3 className="text-[58px] leading-[1.02] font-black mt-5">
+        <h3 className="text-[56px] leading-[1.02] font-black mt-5">
           Selected Projects
         </h3>
 
