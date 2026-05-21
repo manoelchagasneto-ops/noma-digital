@@ -18,7 +18,6 @@ export default function Home() {
         "Noma helpt Belgische bedrijven groeien met moderne branding, social media beheer en premium digitaal design.",
       start: "Start een Project",
       portfolio: "Bekijk Portfolio",
-      services: "Diensten",
       servicesTitle: "Creatieve oplossingen voor moderne merken.",
       contact: "Contacteer Noma",
       cta: "BOUW JOUW DIGITALE AANWEZIGHEID",
@@ -34,7 +33,6 @@ export default function Home() {
         "Noma helps Belgian businesses grow with modern branding, social media management and premium digital design.",
       start: "Start a Project",
       portfolio: "View Portfolio",
-      services: "Services",
       servicesTitle: "Creative solutions for modern brands.",
       contact: "Contact Noma",
       cta: "BUILD YOUR DIGITAL PRESENCE",
@@ -42,43 +40,37 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden">
+    <main className="bg-black text-white overflow-hidden">
 
       {/* BACKGROUND */}
-      <div className="fixed inset-0 -z-10 bg-black">
+      <div className="fixed inset-0 -z-10 bg-black" />
 
-        <div className="absolute top-[-250px] left-[-250px] w-[800px] h-[800px] bg-purple-700/20 blur-[180px] rounded-full" />
+      <div className="fixed top-[-300px] left-[-200px] w-[700px] h-[700px] bg-fuchsia-700/20 blur-[180px] rounded-full -z-10" />
 
-        <div className="absolute bottom-[-250px] right-[-250px] w-[800px] h-[800px] bg-fuchsia-700/10 blur-[180px] rounded-full" />
-
-      </div>
+      <div className="fixed bottom-[-300px] right-[-200px] w-[700px] h-[700px] bg-purple-700/20 blur-[180px] rounded-full -z-10" />
 
       {/* HEADER */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/5 bg-black/40">
-
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/5 backdrop-blur-xl bg-black/60">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 h-[92px] flex items-center justify-between">
 
           {/* LOGO */}
           <div className="flex items-center gap-5">
 
             <img
               src="/logo.png"
-              alt="Noma Logo"
-              className="w-20 lg:w-24 object-contain"
+              alt="Noma"
+              className="w-[90px] lg:w-[110px] object-contain"
             />
 
             <div>
-
-              <h1 className="text-4xl lg:text-5xl font-black tracking-[0.18em] leading-none">
+              <h1 className="text-4xl font-black tracking-[0.35em] leading-none">
                 NOMA
               </h1>
 
               <p className="text-[11px] tracking-[0.45em] text-white/40 mt-2">
                 DIGITAL SOLUTIONS
               </p>
-
             </div>
-
           </div>
 
           {/* MENU */}
@@ -86,35 +78,34 @@ export default function Home() {
 
             <a
               href="#services"
-              className="px-7 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm"
+              className="px-8 py-4 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300"
             >
-              {t[language].services}
+              Diensten
             </a>
 
             <a
               href="#portfolio"
-              className="px-7 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm"
+              className="px-8 py-4 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300"
             >
-              {t[language].portfolio}
+              Bekijk Portfolio
             </a>
 
             <a
               href="#contact"
-              className="px-7 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition text-sm"
+              className="px-8 py-4 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.07] transition-all duration-300"
             >
-              {t[language].contact}
+              Contacteer Noma
             </a>
-
           </div>
 
           {/* LANGUAGE */}
-          <div className="flex items-center gap-2 border border-white/10 bg-white/5 rounded-full p-1">
+          <div className="flex items-center gap-2 border border-white/10 rounded-full p-1 bg-white/[0.03]">
 
             <button
               onClick={() => setLanguage("nl")}
-              className={`px-5 py-3 rounded-full text-sm transition ${
+              className={`px-6 py-3 rounded-full transition-all duration-300 ${
                 language === "nl"
-                  ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.5)]"
+                  ? "bg-fuchsia-600 shadow-[0_0_25px_rgba(217,70,239,0.6)]"
                   : "text-white/50"
               }`}
             >
@@ -123,128 +114,107 @@ export default function Home() {
 
             <button
               onClick={() => setLanguage("en")}
-              className={`px-5 py-3 rounded-full text-sm transition ${
+              className={`px-6 py-3 rounded-full transition-all duration-300 ${
                 language === "en"
-                  ? "bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.5)]"
+                  ? "bg-fuchsia-600 shadow-[0_0_25px_rgba(217,70,239,0.6)]"
                   : "text-white/50"
               }`}
             >
               EN
             </button>
-
           </div>
-
         </div>
-
       </header>
 
       {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-24 lg:pt-32 pb-24">
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-[160px] pb-20">
 
-        {/* ALTERAÇÃO DO ESPAÇAMENTO */}
-        <div className="grid lg:grid-cols-[1fr_650px] gap-28 items-center">
+        {/* ↓ diminuiu espaçamento entre texto e foto */}
+        <div className="grid lg:grid-cols-[1fr_0.95fr] gap-12 items-start">
 
           {/* LEFT */}
-          <div>
+          <div className="pt-10">
 
-            <div className="inline-flex items-center px-6 py-3 rounded-full border border-purple-500/20 bg-purple-500/10 text-sm tracking-[0.25em] text-purple-200 mb-10">
+            <div className="inline-flex px-8 py-4 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-sm tracking-[0.3em] text-white/90">
               {t[language].badge}
             </div>
 
-            <h2 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight">
-
+            <h2 className="mt-10 text-[78px] lg:text-[96px] font-black leading-[0.9] tracking-tight">
               {t[language].title1}
               <br />
-
               {t[language].title2}
               <br />
-
               {t[language].title3}
               <br />
 
               <span className="bg-gradient-to-r from-purple-300 to-fuchsia-500 bg-clip-text text-transparent">
                 {t[language].premium}
               </span>
-
             </h2>
 
-            <p className="mt-10 text-lg text-white/60 leading-relaxed max-w-xl">
+            <p className="mt-10 max-w-xl text-white/65 text-[21px] leading-relaxed">
               {t[language].description}
             </p>
 
-            <div className="flex flex-wrap gap-5 mt-12">
+            <div className="flex flex-wrap gap-5 mt-14">
 
-              <button className="px-10 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold shadow-[0_0_40px_rgba(168,85,247,0.45)] hover:scale-105 transition">
+              <button className="px-12 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold text-lg shadow-[0_0_35px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300">
                 {t[language].start}
               </button>
 
-              <button className="px-10 py-5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              <button className="px-12 py-5 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-lg">
                 {t[language].portfolio}
               </button>
-
             </div>
-
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div
+            className="
+              relative
+              flex
+              justify-end
+              lg:-mt-[22px]
+            "
+          >
 
-            {/* LIGHT EFFECT */}
-            <div className="absolute inset-0 bg-purple-700/20 blur-[140px] rounded-full" />
+            {/* glow */}
+            <div className="absolute inset-0 bg-fuchsia-700/20 blur-[120px]" />
 
-            {/* IMAGE FRAME */}
-            <div
-              className="
-                relative
-                w-full
-                max-w-[650px]
-                ml-auto
-                rounded-[42px]
-                border
-                border-[#b85cff]/40
-                bg-gradient-to-br
-                from-[#1b0624]
-                to-[#120214]
-                p-3
-                shadow-[0_0_80px_rgba(168,85,247,0.22)]
-              "
-            >
+            {/* alinhado com botão EN */}
+            <div className="relative rounded-[42px] border border-fuchsia-500/40 overflow-hidden bg-[#120312] w-full max-w-[760px]">
 
               <img
                 src="/hero.png"
-                alt="Noma Hero"
+                alt="Hero"
                 className="
                   w-full
-                  h-[640px]
+                  h-[760px]
                   object-cover
                   object-center
-                  rounded-[32px]
                 "
               />
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* SERVICES */}
       <section
         id="services"
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-24"
+        className="max-w-7xl mx-auto px-6 lg:px-8 py-14"
       >
+        {/* ↑ diminuiu espaço entre sessões */}
 
-        <p className="text-purple-400 uppercase tracking-[0.35em] text-sm mb-6">
-          {t[language].services}
+        <p className="text-fuchsia-400 tracking-[0.35em] text-sm uppercase">
+          Diensten
         </p>
 
-        <h3 className="text-4xl lg:text-6xl font-black leading-tight max-w-4xl mb-20">
+        <h3 className="text-5xl lg:text-7xl font-black mt-6 leading-tight max-w-4xl">
           {t[language].servicesTitle}
         </h3>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
 
           {[
             {
@@ -264,15 +234,14 @@ export default function Home() {
 
             {
               title: "Accounting",
-              desc: "Professional accounting solutions for modern businesses.",
+              desc: "Professional accounting support for modern companies.",
             },
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-[32px] border border-white/10 bg-white/[0.03] p-8 hover:-translate-y-2 transition duration-300"
+              className="rounded-[34px] border border-white/10 bg-white/[0.03] p-8 hover:border-fuchsia-500/30 transition-all duration-300"
             >
-
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-fuchsia-500 mb-8" />
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-b from-fuchsia-400 to-purple-600 mb-8" />
 
               <h4 className="text-3xl font-bold">
                 {item.title}
@@ -281,73 +250,61 @@ export default function Home() {
               <p className="mt-5 text-white/50 leading-relaxed">
                 {item.desc}
               </p>
-
             </div>
           ))}
-
         </div>
-
       </section>
 
       {/* PORTFOLIO */}
       <section
         id="portfolio"
-        className="max-w-7xl mx-auto px-6 lg:px-8 py-24"
+        className="max-w-7xl mx-auto px-6 lg:px-8 py-14"
       >
-
-        <p className="text-purple-400 uppercase tracking-[0.35em] text-sm mb-6">
+        <p className="text-fuchsia-400 tracking-[0.35em] text-sm uppercase">
           Portfolio
         </p>
 
-        <h3 className="text-4xl lg:text-6xl font-black mb-16">
+        <h3 className="text-5xl lg:text-7xl font-black mt-6">
           Selected Projects
         </h3>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 mt-16">
 
-          <div className="group min-h-[320px] rounded-[40px] bg-gradient-to-br from-purple-900/50 to-black border border-white/10 flex items-center justify-center text-5xl font-black hover:scale-[1.02] transition">
+          <div className="h-[320px] rounded-[40px] bg-gradient-to-br from-fuchsia-950 to-purple-950 border border-white/10 flex items-center justify-center text-5xl font-black hover:scale-[1.02] transition-all duration-500">
             JC Cars
           </div>
 
-          <div className="group min-h-[320px] rounded-[40px] bg-gradient-to-br from-fuchsia-900/20 to-black border border-white/10 flex items-center justify-center text-5xl font-black hover:scale-[1.02] transition">
+          <div className="h-[320px] rounded-[40px] bg-gradient-to-br from-[#170028] to-black border border-white/10 flex items-center justify-center text-5xl font-black hover:scale-[1.02] transition-all duration-500">
             NOMA
           </div>
-
         </div>
-
       </section>
 
       {/* CTA */}
       <section
         id="contact"
-        className="max-w-5xl mx-auto px-6 lg:px-8 py-24"
+        className="max-w-5xl mx-auto px-6 lg:px-8 py-16"
       >
+        <div className="rounded-[50px] border border-fuchsia-500/20 bg-gradient-to-br from-[#1a001f] to-[#0b0010] px-10 py-20 text-center">
 
-        <div className="rounded-[48px] border border-white/10 bg-gradient-to-br from-purple-900/40 to-black p-10 lg:p-20 text-center">
-
-          <h3 className="text-4xl lg:text-6xl font-black leading-tight">
+          <h3 className="text-5xl lg:text-7xl font-black leading-tight">
             {t[language].cta}
           </h3>
 
-          <p className="mt-8 text-white/50 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-8 text-white/50 max-w-2xl mx-auto text-lg">
             Modern branding, cinematic visuals and premium digital presence for ambitious businesses.
           </p>
 
-          <button className="mt-10 px-10 py-5 rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-500 font-semibold shadow-[0_0_40px_rgba(168,85,247,0.45)] hover:scale-105 transition">
-
+          <button className="mt-12 px-12 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold text-lg shadow-[0_0_35px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300">
             {t[language].contact}
-
           </button>
-
         </div>
-
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/5 py-10 text-center text-white/30 text-sm">
+      <footer className="border-t border-white/5 py-10 text-center text-white/30 text-sm tracking-[0.2em]">
         © 2026 NOMA DIGITAL STUDIO • BELGIUM
       </footer>
-
     </main>
   )
 }
