@@ -129,8 +129,7 @@ export default function Home() {
       {/* HERO */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 pt-[160px] pb-20">
 
-        {/* ↓ diminuiu espaçamento entre texto e foto */}
-        <div className="grid lg:grid-cols-[1fr_0.95fr] gap-12 items-start">
+        <div className="grid lg:grid-cols-[1fr_0.95fr] gap-16 items-start">
 
           {/* LEFT */}
           <div className="pt-10">
@@ -169,27 +168,32 @@ export default function Home() {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div
-            className="
-              relative
-              flex
-              justify-end
-              lg:-mt-[22px]
-            "
-          >
+          <div className="relative flex justify-end">
 
             {/* glow */}
             <div className="absolute inset-0 bg-fuchsia-700/20 blur-[120px]" />
 
-            {/* alinhado com botão EN */}
-            <div className="relative rounded-[42px] border border-fuchsia-500/40 overflow-hidden bg-[#120312] w-full max-w-[760px]">
+            {/* FOTO ALINHADA COM TOPO E BASE DOS BOTÕES */}
+            <div
+              className="
+                relative
+                rounded-[42px]
+                border
+                border-fuchsia-500/40
+                overflow-hidden
+                bg-[#120312]
+                w-full
+                max-w-[760px]
+                mt-[6px]
+              "
+            >
 
               <img
                 src="/hero.png"
                 alt="Hero"
                 className="
                   w-full
-                  h-[760px]
+                  h-[690px]
                   object-cover
                   object-center
                 "
@@ -204,7 +208,6 @@ export default function Home() {
         id="services"
         className="max-w-7xl mx-auto px-6 lg:px-8 py-14"
       >
-        {/* ↑ diminuiu espaço entre sessões */}
 
         <p className="text-fuchsia-400 tracking-[0.35em] text-sm uppercase">
           Diensten
