@@ -11,6 +11,7 @@ export default function Home() {
   const t = {
     nl: {
       badge: "Creatieve Digitale Oplossingen",
+
       title1: "MODERNE",
       title2: "DIGITALE",
       title3: "IDENTITEITEN",
@@ -32,6 +33,7 @@ export default function Home() {
 
     en: {
       badge: "Creative Digital Solutions",
+
       title1: "MODERN",
       title2: "DIGITAL",
       title3: "IDENTITIES",
@@ -53,30 +55,31 @@ export default function Home() {
   }
 
   return (
-    <main className="bg-black text-white overflow-hidden">
+    <main className="bg-black text-white overflow-hidden min-h-screen">
 
       {/* BACKGROUND */}
       <div className="fixed inset-0 -z-10 bg-black" />
 
-      <div className="fixed top-[-250px] left-[-200px] w-[700px] h-[700px] bg-fuchsia-700/20 blur-[180px] rounded-full -z-10" />
+      <div className="fixed top-[-250px] left-[-250px] w-[700px] h-[700px] bg-fuchsia-700/20 blur-[180px] rounded-full -z-10" />
 
-      <div className="fixed bottom-[-250px] right-[-200px] w-[700px] h-[700px] bg-purple-700/20 blur-[180px] rounded-full -z-10" />
+      <div className="fixed bottom-[-250px] right-[-250px] w-[700px] h-[700px] bg-purple-700/20 blur-[180px] rounded-full -z-10" />
 
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full z-50 border-b border-white/5 backdrop-blur-xl bg-black/60">
-        <div className="max-w-[1500px] mx-auto px-8 h-[90px] flex items-center justify-between">
 
-          {/* LEFT */}
+        <div className="max-w-[1500px] mx-auto px-8 h-[92px] flex items-center justify-between">
+
+          {/* LOGO */}
           <div className="flex items-center gap-5">
 
             <img
               src="/logo.png"
               alt="Noma"
-              className="w-[88px] object-contain"
+              className="w-[95px] object-contain"
             />
 
             <div>
-              <h1 className="text-[58px] font-black tracking-[0.22em] leading-none">
+              <h1 className="text-[56px] font-black tracking-[0.20em] leading-none">
                 NOMA
               </h1>
 
@@ -111,7 +114,7 @@ export default function Home() {
             </a>
           </div>
 
-          {/* LANGUAGE */}
+          {/* LANG */}
           <div className="flex items-center gap-2 border border-white/10 rounded-full p-1 bg-white/[0.03]">
 
             <button
@@ -140,38 +143,38 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-[1500px] mx-auto px-8 pt-[130px]">
+      <section className="max-w-[1500px] mx-auto px-8 pt-[120px]">
 
-        <div className="grid lg:grid-cols-[1fr_0.95fr] gap-[70px] items-start">
+        <div className="grid lg:grid-cols-[1fr_0.92fr] gap-[40px] items-start">
 
           {/* LEFT */}
-          <div className="pt-[50px]">
+          <div className="pt-[10px]">
 
             {/* SOCIAL */}
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-5">
 
               <a
                 href="#"
-                className="w-11 h-11 rounded-full bg-fuchsia-600 flex items-center justify-center shadow-[0_0_20px_rgba(217,70,239,0.6)]"
+                className="w-10 h-10 rounded-full bg-fuchsia-600 flex items-center justify-center shadow-[0_0_20px_rgba(217,70,239,0.6)]"
               >
-                <Facebook size={18} />
+                <Facebook size={17} />
               </a>
 
               <a
                 href="#"
-                className="w-11 h-11 rounded-full bg-fuchsia-600 flex items-center justify-center shadow-[0_0_20px_rgba(217,70,239,0.6)]"
+                className="w-10 h-10 rounded-full bg-fuchsia-600 flex items-center justify-center shadow-[0_0_20px_rgba(217,70,239,0.6)]"
               >
-                <Instagram size={18} />
+                <Instagram size={17} />
               </a>
             </div>
 
             {/* BADGE */}
-            <div className="inline-flex px-7 py-4 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-[13px] tracking-[0.32em] text-white/90">
+            <div className="inline-flex px-7 py-3 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-[12px] tracking-[0.30em] text-white/90">
               {t[language].badge}
             </div>
 
             {/* TITLE */}
-            <h2 className="mt-8 text-[96px] leading-[0.88] font-black tracking-[-0.04em]">
+            <h2 className="mt-7 text-[88px] leading-[0.90] font-black tracking-[-0.05em]">
 
               {t[language].title1}
               <br />
@@ -188,18 +191,18 @@ export default function Home() {
             </h2>
 
             {/* DESCRIPTION */}
-            <p className="mt-8 max-w-[700px] text-white/65 text-[22px] leading-[1.8]">
+            <p className="mt-7 max-w-[650px] text-white/65 text-[18px] leading-[1.8]">
               {t[language].description}
             </p>
 
             {/* BUTTONS */}
-            <div className="flex gap-5 mt-12">
+            <div className="flex gap-4 mt-10">
 
-              <button className="px-11 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold text-lg shadow-[0_0_35px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300">
+              <button className="px-10 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold shadow-[0_0_35px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300">
                 {t[language].start}
               </button>
 
-              <button className="px-11 py-5 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-lg">
+              <button className="px-10 py-5 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300">
                 {t[language].portfolio}
               </button>
             </div>
@@ -208,21 +211,19 @@ export default function Home() {
           {/* RIGHT */}
           <div className="relative flex justify-end">
 
-            {/* GLOW */}
             <div className="absolute inset-0 bg-fuchsia-700/20 blur-[120px]" />
 
-            {/* IMAGE BOX */}
             <div
               className="
                 relative
-                mt-[55px]
+                mt-[60px]
                 rounded-[42px]
                 border
                 border-fuchsia-500/40
                 overflow-hidden
                 bg-[#120312]
                 w-full
-                max-w-[720px]
+                max-w-[640px]
                 shadow-[0_0_60px_rgba(217,70,239,0.35)]
               "
             >
@@ -232,7 +233,7 @@ export default function Home() {
                 alt="Hero"
                 className="
                   w-full
-                  h-[640px]
+                  h-[620px]
                   object-cover
                   object-center
                 "
@@ -245,18 +246,18 @@ export default function Home() {
       {/* SERVICES */}
       <section
         id="services"
-        className="max-w-[1500px] mx-auto px-8 pt-14"
+        className="max-w-[1500px] mx-auto px-8 pt-16"
       >
 
-        <p className="text-fuchsia-400 tracking-[0.4em] text-sm uppercase">
+        <p className="text-fuchsia-400 tracking-[0.35em] text-sm uppercase">
           Diensten
         </p>
 
-        <h3 className="text-[72px] font-black mt-6 leading-[1.05] max-w-[900px]">
+        <h3 className="text-[72px] font-black mt-5 leading-[1.05] max-w-[900px]">
           {t[language].servicesTitle}
         </h3>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-7 mt-14">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-7 mt-12">
 
           {[
             {
@@ -314,15 +315,15 @@ export default function Home() {
         className="max-w-[1500px] mx-auto px-8 pt-20"
       >
 
-        <p className="text-fuchsia-400 tracking-[0.4em] text-sm uppercase">
+        <p className="text-fuchsia-400 tracking-[0.35em] text-sm uppercase">
           Portfolio
         </p>
 
-        <h3 className="text-[72px] font-black mt-6">
+        <h3 className="text-[72px] font-black mt-5">
           Selected Projects
         </h3>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-14">
+        <div className="grid md:grid-cols-2 gap-8 mt-12">
 
           <div className="h-[320px] rounded-[40px] bg-gradient-to-br from-fuchsia-950 to-purple-950 border border-white/10 flex items-center justify-center text-6xl font-black">
             JC Cars
