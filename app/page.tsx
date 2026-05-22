@@ -9,6 +9,9 @@ export default function Home() {
       y: 0,
     })
 
+  const [particles, setParticles] =
+    useState<any[]>([])
+
   const [language, setLanguage] =
     useState("NL")
 
@@ -38,6 +41,30 @@ export default function Home() {
     }
   }, [])
 
+  /* PARTICLES */
+  useEffect(() => {
+    const generatedParticles =
+      Array.from({
+        length: 32,
+      }).map((_, i) => ({
+        id: i,
+        size:
+          Math.random() * 6 + 2,
+        left:
+          Math.random() * 100,
+        duration:
+          Math.random() * 18 + 12,
+        delay:
+          Math.random() * 10,
+        opacity:
+          Math.random() * 0.5 + 0.1,
+      }))
+
+    setParticles(
+      generatedParticles
+    )
+  }, [])
+
   const t =
     language === "NL"
       ? {
@@ -62,27 +89,6 @@ export default function Home() {
 
           view:
             "Bekijk Portfolio",
-
-          servicesTitle1:
-            "Creatieve oplossingen",
-
-          servicesTitle2:
-            "voor moderne merken.",
-
-          portfolioTitle:
-            "Selected Projects",
-
-          ctaTitle1:
-            "BOUW JOUW DIGITALE",
-
-          ctaTitle2:
-            "AANWEZIGHEID",
-
-          ctaDescription:
-            "Modern branding, cinematic visuals and premium digital presence for ambitious businesses.",
-
-          ctaButton:
-            "Contacteer Noma",
         }
       : {
           services: "Services",
@@ -106,27 +112,6 @@ export default function Home() {
 
           view:
             "View Portfolio",
-
-          servicesTitle1:
-            "Creative solutions",
-
-          servicesTitle2:
-            "for modern brands.",
-
-          portfolioTitle:
-            "Selected Projects",
-
-          ctaTitle1:
-            "BUILD YOUR DIGITAL",
-
-          ctaTitle2:
-            "PRESENCE",
-
-          ctaDescription:
-            "Modern branding, cinematic visuals and premium digital presence for ambitious businesses.",
-
-          ctaButton:
-            "Contact Noma",
         }
 
   return (
@@ -141,6 +126,29 @@ export default function Home() {
         position: "relative",
       }}
     >
+      {/* PARTICLES */}
+      <div className="particles">
+        {particles.map(
+          (particle) => (
+            <span
+              key={particle.id}
+              className="particle"
+              style={{
+                width:
+                  particle.size,
+                height:
+                  particle.size,
+                left: `${particle.left}%`,
+                animationDuration: `${particle.duration}s`,
+                animationDelay: `${particle.delay}s`,
+                opacity:
+                  particle.opacity,
+              }}
+            />
+          )
+        )}
+      </div>
+
       {/* MOUSE LIGHT */}
       <div
         className="mouseLight"
@@ -180,29 +188,23 @@ export default function Home() {
 
           {/* DESKTOP MENU */}
           <div className="desktopMenu">
-            <a href="#services">
-              <button
-                style={menuButton}
-              >
-                {t.services}
-              </button>
-            </a>
+            <button
+              style={menuButton}
+            >
+              {t.services}
+            </button>
 
-            <a href="#portfolio">
-              <button
-                style={menuButton}
-              >
-                {t.portfolio}
-              </button>
-            </a>
+            <button
+              style={menuButton}
+            >
+              {t.portfolio}
+            </button>
 
-            <a href="#contact">
-              <button
-                style={menuButton}
-              >
-                {t.contact}
-              </button>
-            </a>
+            <button
+              style={menuButton}
+            >
+              {t.contact}
+            </button>
 
             {/* LANGUAGE */}
             <div
@@ -263,60 +265,33 @@ export default function Home() {
             <a href="#contact">
               {t.contact}
             </a>
-
-            <div className="mobileLang">
-              <button
-                onClick={() =>
-                  setLanguage("NL")
-                }
-              >
-                NL
-              </button>
-
-              <button
-                onClick={() =>
-                  setLanguage("EN")
-                }
-              >
-                EN
-              </button>
-            </div>
           </div>
         )}
       </header>
 
       {/* HERO */}
       <section className="hero">
+
         {/* LEFT */}
         <div className="heroLeft">
 
           {/* SOCIALS */}
           <div className="socials">
-            <a
-              href="https://facebook.com"
-              target="_blank"
+            <div
+              style={
+                socialButton
+              }
             >
-              <div
-                style={
-                  socialButton
-                }
-              >
-                f
-              </div>
-            </a>
+              f
+            </div>
 
-            <a
-              href="https://instagram.com"
-              target="_blank"
+            <div
+              style={
+                socialButton
+              }
             >
-              <div
-                style={
-                  socialButton
-                }
-              >
-                ◎
-              </div>
-            </a>
+              ◎
+            </div>
           </div>
 
           {/* BADGE */}
@@ -345,25 +320,21 @@ export default function Home() {
 
           {/* BUTTONS */}
           <div className="heroButtons">
-            <a href="#contact">
-              <button
-                style={
-                  primaryButton
-                }
-              >
-                {t.start}
-              </button>
-            </a>
+            <button
+              style={
+                primaryButton
+              }
+            >
+              {t.start}
+            </button>
 
-            <a href="#portfolio">
-              <button
-                style={
-                  secondaryButton
-                }
-              >
-                {t.view}
-              </button>
-            </a>
+            <button
+              style={
+                secondaryButton
+              }
+            >
+              {t.view}
+            </button>
           </div>
         </div>
 
@@ -381,97 +352,68 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section
-        id="services"
-        className="section"
-      >
-        <p className="sectionTag">
-          {t.services}
-        </p>
-
-        <h3 className="sectionTitle">
-          {t.servicesTitle1}
-          <br />
-          {t.servicesTitle2}
-        </h3>
-
-        <div className="servicesGrid">
-          {[
-            "Brand Identity",
-            "Social Media",
-            "Digital Design",
-            "Creative Ads",
-          ].map((item) => (
-            <div
-              key={item}
-              className="serviceCard"
-            >
-              <div className="serviceIcon" />
-
-              <h4>{item}</h4>
-
-              <p>
-                Premium visual
-                strategy focused
-                on cinematic
-                branding and
-                modern digital
-                presence.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PORTFOLIO */}
-      <section
-        id="portfolio"
-        className="section"
-      >
-        <p className="sectionTag">
-          PORTFOLIO
-        </p>
-
-        <h3 className="sectionTitle">
-          {t.portfolioTitle}
-        </h3>
-
-        <div className="portfolioGrid">
-          <div className="portfolioCard">
-            JC Cars
-          </div>
-
-          <div className="portfolioCard">
-            NOMA
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        id="contact"
-        className="ctaSection"
-      >
-        <div className="ctaBox">
-          <h2 className="ctaTitle">
-            {t.ctaTitle1}
-            <br />
-            {t.ctaTitle2}
-          </h2>
-
-          <p className="ctaDesc">
-            {t.ctaDescription}
-          </p>
-
-          <button className="ctaButton">
-            {t.ctaButton}
-          </button>
-        </div>
-      </section>
-
       {/* STYLES */}
       <style jsx>{`
+        .particles {
+          position: fixed;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 0;
+        }
+
+        .particle {
+          position: absolute;
+          bottom: -20px;
+          border-radius: 999px;
+          background: rgba(
+            217,
+            70,
+            239,
+            0.9
+          );
+          box-shadow:
+            0 0 20px
+              rgba(
+                217,
+                70,
+                239,
+                0.8
+              ),
+            0 0 60px
+              rgba(
+                217,
+                70,
+                239,
+                0.4
+              );
+
+          animation-name: float;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
+
+        @keyframes float {
+          0% {
+            transform: translateY(0)
+              translateX(0);
+          }
+
+          50% {
+            transform: translateY(
+                -50vh
+              )
+              translateX(40px);
+          }
+
+          100% {
+            transform: translateY(
+                -110vh
+              )
+              translateX(-30px);
+          }
+        }
+
         .mouseLight {
           position: fixed;
           width: 360px;
@@ -717,153 +659,6 @@ export default function Home() {
           transform: scale(1.06);
         }
 
-        .section {
-          max-width: 1400px;
-          margin: 0 auto;
-          padding: 0 60px 120px;
-          position: relative;
-          z-index: 2;
-        }
-
-        .sectionTag {
-          color: #d946ef;
-          letter-spacing: 0.35em;
-          font-size: 12px;
-          margin-bottom: 20px;
-        }
-
-        .sectionTitle {
-          font-size: 72px;
-          margin-bottom: 60px;
-          line-height: 1;
-        }
-
-        .servicesGrid {
-          display: grid;
-          grid-template-columns:
-            repeat(4, 1fr);
-          gap: 24px;
-        }
-
-        .serviceCard {
-          border: 1px solid
-            rgba(255, 255, 255, 0.08);
-          border-radius: 28px;
-          padding: 38px;
-          background: rgba(
-            255,
-            255,
-            255,
-            0.02
-          );
-        }
-
-        .serviceCard h4 {
-          font-size: 32px;
-          margin-bottom: 18px;
-        }
-
-        .serviceCard p {
-          color: rgba(
-            255,
-            255,
-            255,
-            0.45
-          );
-          line-height: 1.8;
-        }
-
-        .serviceIcon {
-          width: 32px;
-          height: 52px;
-          border-radius: 10px;
-          background: linear-gradient(
-            to bottom,
-            #d946ef,
-            #9333ea
-          );
-          margin-bottom: 28px;
-        }
-
-        .portfolioGrid {
-          display: grid;
-          grid-template-columns:
-            repeat(2, 1fr);
-          gap: 28px;
-        }
-
-        .portfolioCard {
-          height: 320px;
-          border-radius: 36px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 54px;
-          font-weight: 800;
-          background: linear-gradient(
-            to bottom right,
-            #35003f,
-            #05000f
-          );
-          border: 1px solid
-            rgba(255, 255, 255, 0.08);
-        }
-
-        .ctaSection {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding-bottom: 120px;
-          position: relative;
-          z-index: 2;
-        }
-
-        .ctaBox {
-          border-radius: 44px;
-          padding: 90px 60px;
-          text-align: center;
-          background: linear-gradient(
-            to bottom right,
-            #1a0026,
-            #070015
-          );
-          border: 1px solid
-            rgba(217, 70, 239, 0.18);
-        }
-
-        .ctaTitle {
-          font-size: 72px;
-          line-height: 1;
-        }
-
-        .ctaDesc {
-          margin-top: 30px;
-          color: rgba(
-            255,
-            255,
-            255,
-            0.55
-          );
-          line-height: 1.8;
-        }
-
-        .ctaButton {
-          margin-top: 42px;
-          padding: 22px 42px;
-          border-radius: 999px;
-          border: none;
-          background: linear-gradient(
-            to right,
-            #7e22ce,
-            #d946ef
-          );
-          color: white;
-          font-weight: 700;
-          font-size: 18px;
-          cursor: pointer;
-          box-shadow: 0 0 45px
-            rgba(217, 70, 239, 0.45);
-        }
-
         @media (max-width: 1100px) {
           .desktopMenu {
             display: none;
@@ -892,19 +687,6 @@ export default function Home() {
             font-size: 20px;
           }
 
-          .mobileLang {
-            display: flex;
-            gap: 12px;
-          }
-
-          .mobileLang button {
-            padding: 12px 22px;
-            border-radius: 999px;
-            border: none;
-            background: #d946ef;
-            color: white;
-          }
-
           .hero {
             flex-direction: column;
             padding: 40px 24px 100px;
@@ -930,34 +712,6 @@ export default function Home() {
             height: 520px;
           }
 
-          .servicesGrid {
-            grid-template-columns:
-              1fr;
-          }
-
-          .portfolioGrid {
-            grid-template-columns:
-              1fr;
-          }
-
-          .section {
-            padding:
-              0 24px 100px;
-          }
-
-          .sectionTitle {
-            font-size: 46px;
-          }
-
-          .ctaBox {
-            margin: 0 24px;
-            padding: 60px 24px;
-          }
-
-          .ctaTitle {
-            font-size: 42px;
-          }
-
           .headerContent {
             padding: 24px;
           }
@@ -972,6 +726,10 @@ export default function Home() {
 
           .mouseLight {
             display: none;
+          }
+
+          .particle {
+            opacity: 0.12 !important;
           }
         }
       `}</style>
