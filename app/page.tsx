@@ -33,6 +33,37 @@ export default function Home() {
     }
   }, [])
 
+  const t =
+    language === "NL"
+      ? {
+          services: "Diensten",
+          portfolio: "Bekijk Portfolio",
+          contact: "Contacteer Noma",
+          badge:
+            "Creative Digitale Oplossingen",
+          title1: "Moderne",
+          title2: "Digitale",
+          title3: "Identiteiten",
+          desc:
+            "Noma helpt Belgische bedrijven groeien met moderne branding, social media beheer en premium digitaal design.",
+          start: "Start een Project",
+          view: "Bekijk Portfolio",
+        }
+      : {
+          services: "Services",
+          portfolio: "View Portfolio",
+          contact: "Contact Noma",
+          badge:
+            "Creative Digital Solutions",
+          title1: "Modern",
+          title2: "Digital",
+          title3: "Identities",
+          desc:
+            "Noma helps businesses grow with modern branding, social media management and premium digital design.",
+          start: "Start a Project",
+          view: "View Portfolio",
+        }
+
   return (
     <main
       style={{
@@ -42,7 +73,6 @@ export default function Home() {
         fontFamily: "Arial, sans-serif",
         overflowX: "hidden",
         position: "relative",
-        scrollBehavior: "smooth",
       }}
     >
       {/* MOUSE LIGHT */}
@@ -62,7 +92,7 @@ export default function Home() {
         }}
       />
 
-      {/* BACKGROUND GLOW */}
+      {/* BACKGROUND */}
       <div
         style={{
           position: "absolute",
@@ -109,7 +139,6 @@ export default function Home() {
               alt="Logo"
               style={{
                 width: "92px",
-                objectFit: "contain",
               }}
             />
 
@@ -118,7 +147,6 @@ export default function Home() {
                 style={{
                   margin: 0,
                   fontSize: "52px",
-                  lineHeight: 1,
                   fontWeight: 900,
                   letterSpacing: "0.28em",
                 }}
@@ -129,7 +157,6 @@ export default function Home() {
               <p
                 style={{
                   marginTop: "8px",
-                  marginBottom: 0,
                   fontSize: "11px",
                   letterSpacing: "0.45em",
                   color:
@@ -145,46 +172,32 @@ export default function Home() {
           <div
             style={{
               display: "flex",
-              alignItems: "center",
               gap: "18px",
+              alignItems: "center",
             }}
           >
-            <a href="#services">
-              <button style={menuButton}>
-                {language === "NL"
-                  ? "Diensten"
-                  : "Services"}
-              </button>
-            </a>
+            <button style={menuButton}>
+              {t.services}
+            </button>
 
-            <a href="#portfolio">
-              <button style={menuButton}>
-                {language === "NL"
-                  ? "Bekijk Portfolio"
-                  : "View Portfolio"}
-              </button>
-            </a>
+            <button style={menuButton}>
+              {t.portfolio}
+            </button>
 
-            <a href="#contact">
-              <button style={menuButton}>
-                {language === "NL"
-                  ? "Contacteer Noma"
-                  : "Contact Noma"}
-              </button>
-            </a>
+            <button style={menuButton}>
+              {t.contact}
+            </button>
 
-            {/* LANGUAGE */}
+            {/* LANG */}
             <div
               style={{
                 display: "flex",
-                alignItems: "center",
                 padding: "4px",
                 borderRadius: "999px",
                 border:
                   "1px solid rgba(255,255,255,0.08)",
                 background:
                   "rgba(255,255,255,0.03)",
-                marginLeft: "8px",
               }}
             >
               <button
@@ -204,13 +217,7 @@ export default function Home() {
                     language === "NL"
                       ? "#fff"
                       : "rgba(255,255,255,0.45)",
-                  fontWeight: 700,
                   cursor: "pointer",
-                  boxShadow:
-                    language === "NL"
-                      ? "0 0 30px rgba(217,70,239,0.65)"
-                      : "none",
-                  transition: "0.3s",
                 }}
               >
                 NL
@@ -233,13 +240,7 @@ export default function Home() {
                     language === "EN"
                       ? "#fff"
                       : "rgba(255,255,255,0.45)",
-                  fontWeight: 700,
                   cursor: "pointer",
-                  boxShadow:
-                    language === "EN"
-                      ? "0 0 30px rgba(217,70,239,0.65)"
-                      : "none",
-                  transition: "0.3s",
                 }}
               >
                 EN
@@ -252,230 +253,169 @@ export default function Home() {
       {/* HERO */}
       <section
         style={{
+          maxWidth: "1400px",
+          margin: "0 auto",
+          padding: "60px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "80px",
           position: "relative",
           zIndex: 2,
         }}
       >
-        <div
-          style={{
-            maxWidth: "1400px",
-            margin: "0 auto",
-            padding: "60px 60px 120px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            gap: "80px",
-          }}
-        >
-          {/* LEFT */}
+        {/* LEFT */}
+        <div style={{ width: "50%" }}>
+          {/* SOCIALS */}
           <div
             style={{
-              width: "50%",
+              display: "flex",
+              gap: "12px",
+              marginBottom: "36px",
             }}
           >
-            {/* SOCIALS */}
-            <div
-              style={{
-                display: "flex",
-                gap: "12px",
-                marginBottom: "36px",
-              }}
-            >
-              <a
-                href="https://facebook.com"
-                target="_blank"
-              >
-                <div style={socialButton}>
-                  f
-                </div>
-              </a>
-
-              <a
-                href="https://instagram.com"
-                target="_blank"
-              >
-                <div style={socialButton}>
-                  ◎
-                </div>
-              </a>
+            <div style={socialButton}>
+              f
             </div>
 
-            {/* BADGE */}
-            <div
-              style={{
-                display: "inline-block",
-                padding: "16px 30px",
-                borderRadius: "999px",
-                border:
-                  "1px solid rgba(217,70,239,0.3)",
-                background:
-                  "rgba(217,70,239,0.08)",
-                fontSize: "12px",
-                letterSpacing: "0.35em",
-                marginBottom: "38px",
-              }}
-            >
-              {language === "NL"
-                ? "Creative Digitale Oplossingen"
-                : "Creative Digital Solutions"}
-            </div>
-
-            {/* TITLE */}
-            <h2
-              style={{
-                margin: 0,
-                fontSize: "82px",
-                lineHeight: 0.9,
-                fontWeight: 900,
-                textTransform: "uppercase",
-              }}
-            >
-              {language === "NL" ? (
-                <>
-                  Moderne
-                  <br />
-                  Digitale
-                  <br />
-                  Identiteiten
-                  <br />
-
-                  <span
-                    style={{
-                      background:
-                        "linear-gradient(to right,#c084fc,#d946ef)",
-                      WebkitBackgroundClip:
-                        "text",
-                      color: "transparent",
-                    }}
-                  >
-                    Premium
-                  </span>
-                </>
-              ) : (
-                <>
-                  Modern
-                  <br />
-                  Digital
-                  <br />
-                  Identities
-                  <br />
-
-                  <span
-                    style={{
-                      background:
-                        "linear-gradient(to right,#c084fc,#d946ef)",
-                      WebkitBackgroundClip:
-                        "text",
-                      color: "transparent",
-                    }}
-                  >
-                    Premium
-                  </span>
-                </>
-              )}
-            </h2>
-
-            {/* DESCRIPTION */}
-            <p
-              style={{
-                marginTop: "42px",
-                fontSize: "22px",
-                lineHeight: 1.7,
-                color:
-                  "rgba(255,255,255,0.58)",
-                maxWidth: "640px",
-              }}
-            >
-              {language === "NL"
-                ? "Noma helpt Belgische bedrijven groeien met moderne branding, social media beheer en premium digitaal design."
-                : "Noma helps businesses grow with modern branding, social media management and premium digital design."}
-            </p>
-
-            {/* BUTTONS */}
-            <div
-              style={{
-                display: "flex",
-                gap: "20px",
-                marginTop: "48px",
-              }}
-            >
-              <a href="#contact">
-                <button style={primaryButton}>
-                  {language === "NL"
-                    ? "Start een Project"
-                    : "Start a Project"}
-                </button>
-              </a>
-
-              <a href="#portfolio">
-                <button style={secondaryButton}>
-                  {language === "NL"
-                    ? "Bekijk Portfolio"
-                    : "View Portfolio"}
-                </button>
-              </a>
+            <div style={socialButton}>
+              ◎
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
+          {/* BADGE */}
           <div
             style={{
-              width: "50%",
-              display: "flex",
-              justifyContent: "center",
-              position: "relative",
+              display: "inline-block",
+              padding: "16px 30px",
+              borderRadius: "999px",
+              border:
+                "1px solid rgba(217,70,239,0.3)",
+              background:
+                "rgba(217,70,239,0.08)",
+              fontSize: "12px",
+              letterSpacing: "0.35em",
+              marginBottom: "38px",
             }}
           >
-            {/* GLOW */}
-            <div
-              style={{
-                position: "absolute",
-                width: "620px",
-                height: "620px",
-                borderRadius: "999px",
-                background: "#d946ef",
-                opacity: 0.2,
-                filter: "blur(120px)",
-              }}
-            />
+            {t.badge}
+          </div>
 
-            {/* BOX */}
-            <div
+          {/* TITLE */}
+          <h2
+            style={{
+              margin: 0,
+              fontSize: "82px",
+              lineHeight: 0.9,
+              fontWeight: 900,
+              textTransform: "uppercase",
+            }}
+          >
+            {t.title1}
+            <br />
+            {t.title2}
+            <br />
+            {t.title3}
+            <br />
+
+            <span
               style={{
-                width: "520px",
-                height: "650px",
                 background:
-                  "linear-gradient(to bottom right,#f0abfc,#a21caf)",
-                borderRadius: "48px",
-                padding: "22px",
-                boxShadow:
-                  "0 0 90px rgba(217,70,239,0.55)",
-                position: "relative",
-                overflow: "hidden",
+                  "linear-gradient(to right,#c084fc,#d946ef)",
+                WebkitBackgroundClip: "text",
+                color: "transparent",
               }}
             >
-              <img
-                src="/hero.png"
-                alt="Hero"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  borderRadius: "32px",
-                  display: "block",
-                  transition:
-                    "transform 0.6s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform =
-                    "scale(1.06)"
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform =
-                    "scale(1)"
-                }}
-              />
-            </div>
+              Premium
+            </span>
+          </h2>
+
+          {/* DESC */}
+          <p
+            style={{
+              marginTop: "42px",
+              fontSize: "22px",
+              lineHeight: 1.7,
+              color:
+                "rgba(255,255,255,0.58)",
+              maxWidth: "640px",
+            }}
+          >
+            {t.desc}
+          </p>
+
+          {/* BUTTONS */}
+          <div
+            style={{
+              display: "flex",
+              gap: "20px",
+              marginTop: "48px",
+            }}
+          >
+            <button style={primaryButton}>
+              {t.start}
+            </button>
+
+            <button style={secondaryButton}>
+              {t.view}
+            </button>
+          </div>
+        </div>
+
+        {/* IMAGE */}
+        <div
+          style={{
+            width: "50%",
+            display: "flex",
+            justifyContent: "center",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              width: "620px",
+              height: "620px",
+              borderRadius: "999px",
+              background: "#d946ef",
+              opacity: 0.2,
+              filter: "blur(120px)",
+            }}
+          />
+
+          <div
+            style={{
+              width: "520px",
+              height: "650px",
+              background:
+                "linear-gradient(to bottom right,#f0abfc,#a21caf)",
+              borderRadius: "48px",
+              padding: "22px",
+              boxShadow:
+                "0 0 90px rgba(217,70,239,0.55)",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src="/hero.png"
+              alt="Hero"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                borderRadius: "32px",
+                transition:
+                  "transform 0.6s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform =
+                  "scale(1.06)"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform =
+                  "scale(1)"
+              }}
+            />
           </div>
         </div>
       </section>
@@ -488,10 +428,10 @@ const menuButton = {
   borderRadius: "999px",
   border:
     "1px solid rgba(255,255,255,0.08)",
-  background: "rgba(255,255,255,0.03)",
+  background:
+    "rgba(255,255,255,0.03)",
   color: "#fff",
   cursor: "pointer",
-  fontSize: "15px",
 }
 
 const socialButton = {
@@ -508,7 +448,6 @@ const socialButton = {
   boxShadow:
     "0 0 30px rgba(217,70,239,0.45)",
   fontSize: "20px",
-  color: "#fff",
 }
 
 const primaryButton = {
@@ -521,8 +460,6 @@ const primaryButton = {
   fontWeight: 700,
   fontSize: "18px",
   cursor: "pointer",
-  boxShadow:
-    "0 0 45px rgba(217,70,239,0.45)",
 }
 
 const secondaryButton = {
