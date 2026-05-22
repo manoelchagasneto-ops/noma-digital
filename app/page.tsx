@@ -64,15 +64,15 @@ export default function Home() {
       {/* BACKGROUND */}
       <div className="fixed inset-0 bg-black -z-50" />
 
-      {/* LIGHTS */}
-      <div className="fixed top-[-300px] left-[-250px] w-[700px] h-[700px] rounded-full bg-fuchsia-700/20 blur-[180px] -z-40" />
+      {/* LIGHT */}
+      <div className="fixed top-[-350px] left-[-300px] w-[700px] h-[700px] rounded-full bg-fuchsia-700/20 blur-[180px] -z-40" />
 
-      <div className="fixed bottom-[-300px] right-[-250px] w-[700px] h-[700px] rounded-full bg-purple-700/20 blur-[180px] -z-40" />
+      <div className="fixed bottom-[-350px] right-[-300px] w-[700px] h-[700px] rounded-full bg-purple-700/20 blur-[180px] -z-40" />
 
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/5 backdrop-blur-2xl bg-black/45">
+      <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-black/45 border-b border-white/5">
 
-        <div className="max-w-[1450px] mx-auto px-8 h-[78px] flex items-center justify-between">
+        <div className="max-w-[1450px] mx-auto px-8 h-[82px] flex items-center justify-between">
 
           {/* LOGO */}
           <div className="flex items-center gap-4">
@@ -80,11 +80,11 @@ export default function Home() {
             <img
               src="/logo.png"
               alt="Noma"
-              className="w-[72px] object-contain"
+              className="w-[74px] object-contain"
             />
 
             <div>
-              <h1 className="text-[42px] leading-none font-black tracking-[0.23em]">
+              <h1 className="text-[44px] leading-none tracking-[0.23em] font-black">
                 NOMA
               </h1>
 
@@ -99,21 +99,21 @@ export default function Home() {
 
             <a
               href="#services"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] text-sm hover:bg-white/[0.06] transition-all duration-300"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
             >
               Diensten
             </a>
 
             <a
               href="#portfolio"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] text-sm hover:bg-white/[0.06] transition-all duration-300"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
             >
               Bekijk Portfolio
             </a>
 
             <a
               href="#contact"
-              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] text-sm hover:bg-white/[0.06] transition-all duration-300"
+              className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] hover:bg-white/[0.06] transition-all duration-300 text-sm"
             >
               Contacteer Noma
             </a>
@@ -148,15 +148,15 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="max-w-[1450px] mx-auto px-8 pt-[110px]">
+      <section className="max-w-[1450px] mx-auto px-8 pt-[120px]">
 
-        <div className="grid lg:grid-cols-[0.95fr_0.82fr] gap-[30px] items-start">
+        <div className="grid lg:grid-cols-[0.95fr_0.78fr] gap-[10px] items-start">
 
           {/* LEFT */}
-          <div className="pt-[15px]">
+          <div className="pt-[5px]">
 
             {/* SOCIAL */}
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-5">
 
               <a
                 href="#"
@@ -168,7 +168,7 @@ export default function Home() {
                   flex
                   items-center
                   justify-center
-                  shadow-[0_0_25px_rgba(217,70,239,0.6)]
+                  shadow-[0_0_25px_rgba(217,70,239,0.65)]
                 "
               >
                 <Facebook size={17} />
@@ -184,7 +184,7 @@ export default function Home() {
                   flex
                   items-center
                   justify-center
-                  shadow-[0_0_25px_rgba(217,70,239,0.6)]
+                  shadow-[0_0_25px_rgba(217,70,239,0.65)]
                 "
               >
                 <Instagram size={17} />
@@ -197,7 +197,7 @@ export default function Home() {
             </div>
 
             {/* TITLE */}
-            <h2 className="mt-7 text-[78px] xl:text-[92px] leading-[0.84] tracking-[-0.06em] font-black">
+            <h2 className="mt-7 text-[82px] leading-[0.84] tracking-[-0.06em] font-black">
 
               {t[language].title1}
               <br />
@@ -208,20 +208,20 @@ export default function Home() {
               {t[language].title3}
               <br />
 
-              <span className="bg-gradient-to-r from-purple-300 via-fuchsia-400 to-fuchsia-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-300 to-fuchsia-500 bg-clip-text text-transparent">
                 {t[language].premium}
               </span>
             </h2>
 
             {/* DESCRIPTION */}
-            <p className="mt-7 max-w-[540px] text-white/55 text-[16px] leading-[1.9]">
+            <p className="mt-7 max-w-[530px] text-white/55 text-[16px] leading-[1.9]">
               {t[language].description}
             </p>
 
             {/* BUTTONS */}
             <div className="flex gap-4 mt-10">
 
-              <button className="px-9 py-4 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_40px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300 font-semibold">
+              <button className="px-9 py-4 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_40px_rgba(217,70,239,0.45)] font-semibold hover:scale-105 transition-all duration-300">
                 {t[language].start}
               </button>
 
@@ -234,23 +234,38 @@ export default function Home() {
           {/* RIGHT */}
           <div className="relative flex justify-center">
 
-            {/* PURPLE FRAME */}
-            <div className="relative mt-[10px] w-[420px] h-[500px] bg-[#1c0026] flex items-center justify-center">
+            {/* BIG PURPLE BLOCK */}
+            <div
+              className="
+                relative
+                mt-[5px]
+                w-[430px]
+                h-[510px]
+                bg-[#1a0022]
+                flex
+                items-center
+                justify-center
+              "
+            >
 
-              {/* GLOW */}
+              {/* MAIN GLOW */}
               <div className="absolute inset-0 bg-fuchsia-600/20 blur-[80px]" />
+
+              {/* SECOND GLOW */}
+              <div className="absolute inset-[-10px] bg-fuchsia-500/10 blur-[50px]" />
 
               {/* IMAGE FRAME */}
               <div
                 className="
                   relative
-                  w-[250px]
-                  h-[370px]
-                  rounded-[28px]
+                  w-[255px]
+                  h-[375px]
+                  rounded-[30px]
                   overflow-hidden
                   border
-                  border-fuchsia-500/20
-                  shadow-[0_0_60px_rgba(217,70,239,0.25)]
+                  border-fuchsia-400/20
+                  bg-black
+                  shadow-[0_0_60px_rgba(217,70,239,0.35)]
                 "
               >
 
@@ -378,7 +393,7 @@ export default function Home() {
             Modern branding, cinematic visuals and premium digital presence for ambitious businesses.
           </p>
 
-          <button className="mt-10 px-10 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_35px_rgba(217,70,239,0.45)] hover:scale-105 transition-all duration-300 font-semibold">
+          <button className="mt-10 px-10 py-5 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 shadow-[0_0_35px_rgba(217,70,239,0.45)] font-semibold hover:scale-105 transition-all duration-300">
             {t[language].contact}
           </button>
         </div>
