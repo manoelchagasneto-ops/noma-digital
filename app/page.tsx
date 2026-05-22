@@ -370,27 +370,68 @@ export default function Home() {
         </h3>
 
         <div className="servicesGrid">
-          {[
-            "Brand Identity",
-            "Social Media",
-            "Digital Design",
-            "Creative Ads",
-          ].map((item) => (
-            <div
-              key={item}
-              className="serviceCard"
-            >
-              <div className="serviceIcon" />
 
-              <h4>{item}</h4>
+          <div className="serviceCard">
+            <div className="serviceIcon" />
 
-              <p>
-                Premium visual strategy focused
-                on cinematic branding and modern
-                digital presence.
-              </p>
-            </div>
-          ))}
+            <h4>
+              Brand Identity
+            </h4>
+
+            <p>
+              Premium branding
+              strategy for modern
+              businesses and strong
+              digital positioning.
+            </p>
+          </div>
+
+          <div className="serviceCard">
+            <div className="serviceIcon" />
+
+            <h4>
+              Social Media
+            </h4>
+
+            <p>
+              Creative content and
+              visual storytelling
+              focused on engagement
+              and growth.
+            </p>
+          </div>
+
+          <div className="serviceCard">
+            <div className="serviceIcon" />
+
+            <h4>
+              Digital Design
+            </h4>
+
+            <p>
+              Cinematic visuals and
+              premium interfaces for
+              brands that want
+              impact.
+            </p>
+          </div>
+
+          <div className="serviceCard">
+            <div className="serviceIcon" />
+
+            <h4>
+              Accounting
+            </h4>
+
+            <p>
+              Professional accounting
+              solutions for modern
+              businesses with
+              organization, strategy
+              and trust.
+            </p>
+          </div>
+
         </div>
       </section>
 
