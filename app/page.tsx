@@ -1,4 +1,36 @@
+"use client"
+
+import { useEffect, useState } from "react"
+
 export default function Home() {
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  })
+
+  useEffect(() => {
+    const handleMouseMove = (
+      e: MouseEvent
+    ) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      })
+    }
+
+    window.addEventListener(
+      "mousemove",
+      handleMouseMove
+    )
+
+    return () => {
+      window.removeEventListener(
+        "mousemove",
+        handleMouseMove
+      )
+    }
+  }, [])
+
   return (
     <main
       style={{
@@ -10,6 +42,23 @@ export default function Home() {
         position: "relative",
       }}
     >
+      {/* MOUSE LIGHT */}
+      <div
+        style={{
+          position: "fixed",
+          left: mousePosition.x - 180,
+          top: mousePosition.y - 180,
+          width: "360px",
+          height: "360px",
+          borderRadius: "999px",
+          background:
+            "radial-gradient(circle, rgba(217,70,239,0.22) 0%, rgba(217,70,239,0) 70%)",
+          pointerEvents: "none",
+          zIndex: 1,
+          transition: "all 0.08s linear",
+        }}
+      />
+
       {/* BACKGROUND GLOW */}
       <div
         style={{
@@ -28,7 +77,8 @@ export default function Home() {
       {/* HEADER */}
       <header
         style={{
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom:
+            "1px solid rgba(255,255,255,0.08)",
           position: "relative",
           zIndex: 2,
         }}
@@ -79,7 +129,8 @@ export default function Home() {
                   marginBottom: 0,
                   fontSize: "11px",
                   letterSpacing: "0.45em",
-                  color: "rgba(255,255,255,0.45)",
+                  color:
+                    "rgba(255,255,255,0.45)",
                 }}
               >
                 DIGITAL SOLUTIONS
@@ -95,17 +146,23 @@ export default function Home() {
               gap: "18px",
             }}
           >
-            <button style={menuButton}>
-              Diensten
-            </button>
+            <a href="#services">
+              <button style={menuButton}>
+                Diensten
+              </button>
+            </a>
 
-            <button style={menuButton}>
-              Bekijk Portfolio
-            </button>
+            <a href="#portfolio">
+              <button style={menuButton}>
+                Bekijk Portfolio
+              </button>
+            </a>
 
-            <button style={menuButton}>
-              Contacteer Noma
-            </button>
+            <a href="#contact">
+              <button style={menuButton}>
+                Contacteer Noma
+              </button>
+            </a>
 
             {/* LANGUAGE */}
             <div
@@ -114,8 +171,10 @@ export default function Home() {
                 alignItems: "center",
                 padding: "4px",
                 borderRadius: "999px",
-                border: "1px solid rgba(255,255,255,0.08)",
-                background: "rgba(255,255,255,0.03)",
+                border:
+                  "1px solid rgba(255,255,255,0.08)",
+                background:
+                  "rgba(255,255,255,0.03)",
                 marginLeft: "8px",
               }}
             >
@@ -143,7 +202,8 @@ export default function Home() {
                   borderRadius: "999px",
                   border: "none",
                   background: "transparent",
-                  color: "rgba(255,255,255,0.45)",
+                  color:
+                    "rgba(255,255,255,0.45)",
                   cursor: "pointer",
                 }}
               >
@@ -169,7 +229,7 @@ export default function Home() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            gap: "40px",
+            gap: "80px",
           }}
         >
           {/* LEFT */}
@@ -186,13 +246,23 @@ export default function Home() {
                 marginBottom: "36px",
               }}
             >
-              <div style={socialButton}>
-                f
-              </div>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+              >
+                <div style={socialButton}>
+                  f
+                </div>
+              </a>
 
-              <div style={socialButton}>
-                ◎
-              </div>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+              >
+                <div style={socialButton}>
+                  ◎
+                </div>
+              </a>
             </div>
 
             {/* BADGE */}
@@ -217,7 +287,7 @@ export default function Home() {
             <h2
               style={{
                 margin: 0,
-                fontSize: "96px",
+                fontSize: "82px",
                 lineHeight: 0.9,
                 fontWeight: 900,
                 textTransform: "uppercase",
@@ -248,13 +318,15 @@ export default function Home() {
                 marginTop: "42px",
                 fontSize: "22px",
                 lineHeight: 1.7,
-                color: "rgba(255,255,255,0.58)",
+                color:
+                  "rgba(255,255,255,0.58)",
                 maxWidth: "640px",
               }}
             >
-              Noma helpt Belgische bedrijven groeien
-              met moderne branding, social media
-              beheer en premium digitaal design.
+              Noma helpt Belgische bedrijven
+              groeien met moderne branding,
+              social media beheer en premium
+              digitaal design.
             </p>
 
             {/* BUTTONS */}
@@ -265,13 +337,17 @@ export default function Home() {
                 marginTop: "48px",
               }}
             >
-              <button style={primaryButton}>
-                Start een Project
-              </button>
+              <a href="#contact">
+                <button style={primaryButton}>
+                  Start een Project
+                </button>
+              </a>
 
-              <button style={secondaryButton}>
-                Bekijk Portfolio
-              </button>
+              <a href="#portfolio">
+                <button style={secondaryButton}>
+                  Bekijk Portfolio
+                </button>
+              </a>
             </div>
           </div>
 
@@ -309,6 +385,7 @@ export default function Home() {
                 boxShadow:
                   "0 0 90px rgba(217,70,239,0.55)",
                 position: "relative",
+                overflow: "hidden",
               }}
             >
               <img
@@ -320,6 +397,16 @@ export default function Home() {
                   objectFit: "cover",
                   borderRadius: "32px",
                   display: "block",
+                  transition:
+                    "transform 0.6s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform =
+                    "scale(1.06)"
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform =
+                    "scale(1)"
                 }}
               />
             </div>
@@ -329,6 +416,7 @@ export default function Home() {
 
       {/* SERVICES */}
       <section
+        id="services"
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
@@ -415,8 +503,8 @@ export default function Home() {
                   fontSize: "15px",
                 }}
               >
-                Premium visual strategy focused on
-                cinematic branding and modern
+                Premium visual strategy focused
+                on cinematic branding and modern
                 digital presence.
               </p>
             </div>
@@ -426,6 +514,7 @@ export default function Home() {
 
       {/* PORTFOLIO */}
       <section
+        id="portfolio"
         style={{
           maxWidth: "1400px",
           margin: "0 auto",
@@ -474,6 +563,7 @@ export default function Home() {
 
       {/* CTA */}
       <section
+        id="contact"
         style={{
           maxWidth: "1100px",
           margin: "0 auto",
@@ -514,29 +604,31 @@ export default function Home() {
               lineHeight: 1.8,
             }}
           >
-            Modern branding, cinematic visuals and
-            premium digital presence for ambitious
-            businesses.
+            Modern branding, cinematic visuals
+            and premium digital presence for
+            ambitious businesses.
           </p>
 
-          <button
-            style={{
-              marginTop: "42px",
-              padding: "22px 42px",
-              borderRadius: "999px",
-              border: "none",
-              background:
-                "linear-gradient(to right,#7e22ce,#d946ef)",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "18px",
-              cursor: "pointer",
-              boxShadow:
-                "0 0 45px rgba(217,70,239,0.45)",
-            }}
-          >
-            Contacteer Noma
-          </button>
+          <a href="mailto:contact@noma.com">
+            <button
+              style={{
+                marginTop: "42px",
+                padding: "22px 42px",
+                borderRadius: "999px",
+                border: "none",
+                background:
+                  "linear-gradient(to right,#7e22ce,#d946ef)",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "18px",
+                cursor: "pointer",
+                boxShadow:
+                  "0 0 45px rgba(217,70,239,0.45)",
+              }}
+            >
+              Contacteer Noma
+            </button>
+          </a>
         </div>
       </section>
     </main>
@@ -546,7 +638,8 @@ export default function Home() {
 const menuButton = {
   padding: "16px 28px",
   borderRadius: "999px",
-  border: "1px solid rgba(255,255,255,0.08)",
+  border:
+    "1px solid rgba(255,255,255,0.08)",
   background: "rgba(255,255,255,0.03)",
   color: "#fff",
   cursor: "pointer",
@@ -557,14 +650,17 @@ const socialButton = {
   width: "48px",
   height: "48px",
   borderRadius: "999px",
-  background: "rgba(217,70,239,0.15)",
-  border: "1px solid rgba(217,70,239,0.45)",
+  background:
+    "rgba(217,70,239,0.15)",
+  border:
+    "1px solid rgba(217,70,239,0.45)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   boxShadow:
     "0 0 30px rgba(217,70,239,0.45)",
   fontSize: "20px",
+  color: "#fff",
 }
 
 const primaryButton = {
@@ -584,8 +680,10 @@ const primaryButton = {
 const secondaryButton = {
   padding: "22px 42px",
   borderRadius: "999px",
-  border: "1px solid rgba(255,255,255,0.08)",
-  background: "rgba(255,255,255,0.03)",
+  border:
+    "1px solid rgba(255,255,255,0.08)",
+  background:
+    "rgba(255,255,255,0.03)",
   color: "#fff",
   fontSize: "18px",
   cursor: "pointer",
@@ -601,5 +699,6 @@ const portfolioCard = {
   fontWeight: 800,
   background:
     "linear-gradient(to bottom right,#35003f,#05000f)",
-  border: "1px solid rgba(255,255,255,0.08)",
+  border:
+    "1px solid rgba(255,255,255,0.08)",
 }
