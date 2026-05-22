@@ -8,6 +8,8 @@ export default function Home() {
     y: 0,
   })
 
+  const [language, setLanguage] = useState("NL")
+
   useEffect(() => {
     const handleMouseMove = (
       e: MouseEvent
@@ -40,6 +42,7 @@ export default function Home() {
         fontFamily: "Arial, sans-serif",
         overflowX: "hidden",
         position: "relative",
+        scrollBehavior: "smooth",
       }}
     >
       {/* MOUSE LIGHT */}
@@ -148,19 +151,25 @@ export default function Home() {
           >
             <a href="#services">
               <button style={menuButton}>
-                Diensten
+                {language === "NL"
+                  ? "Diensten"
+                  : "Services"}
               </button>
             </a>
 
             <a href="#portfolio">
               <button style={menuButton}>
-                Bekijk Portfolio
+                {language === "NL"
+                  ? "Bekijk Portfolio"
+                  : "View Portfolio"}
               </button>
             </a>
 
             <a href="#contact">
               <button style={menuButton}>
-                Contacteer Noma
+                {language === "NL"
+                  ? "Contacteer Noma"
+                  : "Contact Noma"}
               </button>
             </a>
 
@@ -179,32 +188,58 @@ export default function Home() {
               }}
             >
               <button
+                onClick={() =>
+                  setLanguage("NL")
+                }
                 style={{
                   width: "52px",
                   height: "52px",
                   borderRadius: "999px",
                   border: "none",
-                  background: "#d946ef",
-                  color: "#fff",
+                  background:
+                    language === "NL"
+                      ? "#d946ef"
+                      : "transparent",
+                  color:
+                    language === "NL"
+                      ? "#fff"
+                      : "rgba(255,255,255,0.45)",
                   fontWeight: 700,
                   cursor: "pointer",
                   boxShadow:
-                    "0 0 30px rgba(217,70,239,0.65)",
+                    language === "NL"
+                      ? "0 0 30px rgba(217,70,239,0.65)"
+                      : "none",
+                  transition: "0.3s",
                 }}
               >
                 NL
               </button>
 
               <button
+                onClick={() =>
+                  setLanguage("EN")
+                }
                 style={{
                   width: "52px",
                   height: "52px",
                   borderRadius: "999px",
                   border: "none",
-                  background: "transparent",
+                  background:
+                    language === "EN"
+                      ? "#d946ef"
+                      : "transparent",
                   color:
-                    "rgba(255,255,255,0.45)",
+                    language === "EN"
+                      ? "#fff"
+                      : "rgba(255,255,255,0.45)",
+                  fontWeight: 700,
                   cursor: "pointer",
+                  boxShadow:
+                    language === "EN"
+                      ? "0 0 30px rgba(217,70,239,0.65)"
+                      : "none",
+                  transition: "0.3s",
                 }}
               >
                 EN
@@ -280,7 +315,9 @@ export default function Home() {
                 marginBottom: "38px",
               }}
             >
-              Creative Digitale Oplossingen
+              {language === "NL"
+                ? "Creative Digitale Oplossingen"
+                : "Creative Digital Solutions"}
             </div>
 
             {/* TITLE */}
@@ -293,23 +330,49 @@ export default function Home() {
                 textTransform: "uppercase",
               }}
             >
-              Moderne
-              <br />
-              Digitale
-              <br />
-              Identiteiten
-              <br />
+              {language === "NL" ? (
+                <>
+                  Moderne
+                  <br />
+                  Digitale
+                  <br />
+                  Identiteiten
+                  <br />
 
-              <span
-                style={{
-                  background:
-                    "linear-gradient(to right,#c084fc,#d946ef)",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
-                }}
-              >
-                Premium
-              </span>
+                  <span
+                    style={{
+                      background:
+                        "linear-gradient(to right,#c084fc,#d946ef)",
+                      WebkitBackgroundClip:
+                        "text",
+                      color: "transparent",
+                    }}
+                  >
+                    Premium
+                  </span>
+                </>
+              ) : (
+                <>
+                  Modern
+                  <br />
+                  Digital
+                  <br />
+                  Identities
+                  <br />
+
+                  <span
+                    style={{
+                      background:
+                        "linear-gradient(to right,#c084fc,#d946ef)",
+                      WebkitBackgroundClip:
+                        "text",
+                      color: "transparent",
+                    }}
+                  >
+                    Premium
+                  </span>
+                </>
+              )}
             </h2>
 
             {/* DESCRIPTION */}
@@ -323,10 +386,9 @@ export default function Home() {
                 maxWidth: "640px",
               }}
             >
-              Noma helpt Belgische bedrijven
-              groeien met moderne branding,
-              social media beheer en premium
-              digitaal design.
+              {language === "NL"
+                ? "Noma helpt Belgische bedrijven groeien met moderne branding, social media beheer en premium digitaal design."
+                : "Noma helps businesses grow with modern branding, social media management and premium digital design."}
             </p>
 
             {/* BUTTONS */}
@@ -339,13 +401,17 @@ export default function Home() {
             >
               <a href="#contact">
                 <button style={primaryButton}>
-                  Start een Project
+                  {language === "NL"
+                    ? "Start een Project"
+                    : "Start a Project"}
                 </button>
               </a>
 
               <a href="#portfolio">
                 <button style={secondaryButton}>
-                  Bekijk Portfolio
+                  {language === "NL"
+                    ? "Bekijk Portfolio"
+                    : "View Portfolio"}
                 </button>
               </a>
             </div>
@@ -413,224 +479,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* SERVICES */}
-      <section
-        id="services"
-        style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "0 60px 120px",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        <p
-          style={{
-            color: "#d946ef",
-            letterSpacing: "0.35em",
-            fontSize: "12px",
-            marginBottom: "20px",
-          }}
-        >
-          DIENSTEN
-        </p>
-
-        <h3
-          style={{
-            fontSize: "72px",
-            lineHeight: 1,
-            margin: 0,
-            marginBottom: "60px",
-            maxWidth: "900px",
-          }}
-        >
-          Creatieve oplossingen
-          <br />
-          voor moderne merken.
-        </h3>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(4, minmax(0,1fr))",
-            gap: "24px",
-          }}
-        >
-          {[
-            "Brand Identity",
-            "Social Media",
-            "Digital Design",
-            "Creative Ads",
-          ].map((item) => (
-            <div
-              key={item}
-              style={{
-                border:
-                  "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "28px",
-                padding: "38px",
-                background:
-                  "rgba(255,255,255,0.02)",
-              }}
-            >
-              <div
-                style={{
-                  width: "32px",
-                  height: "52px",
-                  borderRadius: "10px",
-                  background:
-                    "linear-gradient(to bottom,#d946ef,#9333ea)",
-                  marginBottom: "28px",
-                }}
-              />
-
-              <h4
-                style={{
-                  fontSize: "32px",
-                  marginBottom: "18px",
-                }}
-              >
-                {item}
-              </h4>
-
-              <p
-                style={{
-                  color:
-                    "rgba(255,255,255,0.45)",
-                  lineHeight: 1.8,
-                  fontSize: "15px",
-                }}
-              >
-                Premium visual strategy focused
-                on cinematic branding and modern
-                digital presence.
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PORTFOLIO */}
-      <section
-        id="portfolio"
-        style={{
-          maxWidth: "1400px",
-          margin: "0 auto",
-          padding: "0 60px 140px",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        <p
-          style={{
-            color: "#d946ef",
-            letterSpacing: "0.35em",
-            fontSize: "12px",
-            marginBottom: "20px",
-          }}
-        >
-          PORTFOLIO
-        </p>
-
-        <h3
-          style={{
-            fontSize: "72px",
-            marginBottom: "60px",
-          }}
-        >
-          Selected Projects
-        </h3>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(2, minmax(0,1fr))",
-            gap: "28px",
-          }}
-        >
-          <div style={portfolioCard}>
-            JC Cars
-          </div>
-
-          <div style={portfolioCard}>
-            NOMA
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section
-        id="contact"
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          paddingBottom: "120px",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        <div
-          style={{
-            borderRadius: "44px",
-            padding: "90px 60px",
-            textAlign: "center",
-            background:
-              "linear-gradient(to bottom right,#1a0026,#070015)",
-            border:
-              "1px solid rgba(217,70,239,0.18)",
-          }}
-        >
-          <h2
-            style={{
-              margin: 0,
-              fontSize: "72px",
-              lineHeight: 1,
-              textTransform: "uppercase",
-            }}
-          >
-            Bouw jouw digitale
-            <br />
-            aanwezigheid
-          </h2>
-
-          <p
-            style={{
-              marginTop: "30px",
-              color:
-                "rgba(255,255,255,0.55)",
-              lineHeight: 1.8,
-            }}
-          >
-            Modern branding, cinematic visuals
-            and premium digital presence for
-            ambitious businesses.
-          </p>
-
-          <a href="mailto:contact@noma.com">
-            <button
-              style={{
-                marginTop: "42px",
-                padding: "22px 42px",
-                borderRadius: "999px",
-                border: "none",
-                background:
-                  "linear-gradient(to right,#7e22ce,#d946ef)",
-                color: "#fff",
-                fontWeight: 700,
-                fontSize: "18px",
-                cursor: "pointer",
-                boxShadow:
-                  "0 0 45px rgba(217,70,239,0.45)",
-              }}
-            >
-              Contacteer Noma
-            </button>
-          </a>
-        </div>
-      </section>
     </main>
   )
 }
@@ -687,18 +535,4 @@ const secondaryButton = {
   color: "#fff",
   fontSize: "18px",
   cursor: "pointer",
-}
-
-const portfolioCard = {
-  height: "320px",
-  borderRadius: "36px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  fontSize: "54px",
-  fontWeight: 800,
-  background:
-    "linear-gradient(to bottom right,#35003f,#05000f)",
-  border:
-    "1px solid rgba(255,255,255,0.08)",
 }
