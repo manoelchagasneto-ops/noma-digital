@@ -1,86 +1,64 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import {
-  Facebook,
-  Instagram,
-  ArrowRight,
-  Menu,
-} from "lucide-react"
+import { Facebook, Instagram } from "lucide-react"
 
 export default function Home() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX,
-        y: e.clientY,
-      })
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-    }
-  }, [])
-
   return (
-    <main className="bg-black text-white overflow-hidden">
-      {/* BACKGROUND EFFECT */}
-      <div className="fixed inset-0 z-0 overflow-hidden">
-        <div
-          className="absolute w-[500px] h-[500px] rounded-full bg-fuchsia-700/20 blur-[120px] transition-all duration-300"
-          style={{
-            left: mousePosition.x - 250,
-            top: mousePosition.y - 250,
-          }}
-        />
+    <main className="bg-black text-white min-h-screen overflow-hidden relative">
 
-        <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-purple-700/10 blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-700/10 blur-[150px]" />
-      </div>
+      {/* BACKGROUND */}
+      <div className="fixed inset-0 bg-black -z-50" />
+
+      {/* LIGHTS */}
+      <div className="absolute top-[-300px] left-[-250px] w-[700px] h-[700px] bg-fuchsia-700/20 blur-[180px] rounded-full" />
+
+      <div className="absolute top-[100px] right-[-200px] w-[600px] h-[600px] bg-purple-700/20 blur-[180px] rounded-full" />
 
       {/* HEADER */}
-      <header className="relative z-20 border-b border-white/10 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full z-50 border-b border-white/5 backdrop-blur-xl bg-black/40">
+
+        <div className="max-w-[1450px] mx-auto px-8 h-[82px] flex items-center justify-between">
+
           {/* LOGO */}
           <div className="flex items-center gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-violet-700 flex items-center justify-center shadow-[0_0_40px_rgba(217,70,239,0.5)]">
-              <span className="text-3xl font-black">N</span>
-            </div>
+
+            <img
+              src="/logo.png"
+              alt="Noma"
+              className="w-[84px]"
+            />
 
             <div>
-              <h1 className="text-4xl font-black tracking-widest">
+              <h1 className="text-[46px] font-black tracking-[0.20em] leading-none">
                 NOMA
               </h1>
 
-              <p className="text-xs tracking-[0.4em] text-white/50 uppercase">
-                Digital Solutions
+              <p className="text-[9px] tracking-[0.55em] text-white/35 mt-1">
+                DIGITAL SOLUTIONS
               </p>
             </div>
           </div>
 
           {/* MENU */}
-          <nav className="hidden lg:flex items-center gap-4">
-            {[
-              "Diensten",
-              "Bekijk Portfolio",
-              "Contacteer Noma",
-            ].map((item) => (
-              <button
-                key={item}
-                className="px-7 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-fuchsia-600/20 hover:border-fuchsia-500/50 transition-all duration-300 text-sm"
-              >
-                {item}
-              </button>
-            ))}
-          </nav>
+          <div className="hidden lg:flex items-center gap-3">
+
+            <button className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] text-sm hover:bg-white/[0.05] transition-all">
+              Diensten
+            </button>
+
+            <button className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] text-sm hover:bg-white/[0.05] transition-all">
+              Bekijk Portfolio
+            </button>
+
+            <button className="px-7 py-3 rounded-full border border-white/10 bg-white/[0.03] text-sm hover:bg-white/[0.05] transition-all">
+              Contacteer Noma
+            </button>
+          </div>
 
           {/* LANGUAGE */}
-          <div className="hidden md:flex items-center gap-2 bg-white/5 border border-white/10 rounded-full p-1">
-            <button className="px-5 py-2 rounded-full bg-fuchsia-600 text-sm font-semibold shadow-[0_0_20px_rgba(217,70,239,0.8)]">
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] p-1">
+
+            <button className="px-5 py-2 rounded-full bg-fuchsia-600 shadow-[0_0_25px_rgba(217,70,239,0.7)] text-sm">
               NL
             </button>
 
@@ -88,106 +66,381 @@ export default function Home() {
               EN
             </button>
           </div>
-
-          <button className="lg:hidden">
-            <Menu />
-          </button>
         </div>
       </header>
 
       {/* HERO */}
-      
-            <div className="inline-flex px-5 py-2 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-300 text-sm mb-8 tracking-widest uppercase">
-              Creative Digitale Oplossingen
-            </div>
+      <section className="relative h-[950px] w-full">
 
-            <h2 className="text-6xl md:text-7xl font-black leading-[0.95] mb-6">
-              MODERNE <br />
-              DIGITALE <br />
-              IDENTITEITEN <br />
+        {/* SOCIAL */}
+        <div className="absolute top-[150px] left-[90px] flex gap-3 z-30">
 
-              <span className="bg-gradient-to-r from-fuchsia-500 to-violet-400 bg-clip-text text-transparent">
-                PREMIUM
-              </span>
-            </h2>
+          <button
+            className="
+              w-10
+              h-10
+              rounded-full
+              bg-fuchsia-600
+              flex
+              items-center
+              justify-center
+              shadow-[0_0_25px_rgba(217,70,239,0.7)]
+            "
+          >
+            <Facebook size={18} />
+          </button>
 
-            <p className="text-white/60 text-lg leading-relaxed max-w-xl mb-10">
-              Noma helpt Belgische bedrijven groeien met moderne branding,
-              social media beheer en premium digital design.
-            </p>
+          <button
+            className="
+              w-10
+              h-10
+              rounded-full
+              bg-fuchsia-600
+              flex
+              items-center
+              justify-center
+              shadow-[0_0_25px_rgba(217,70,239,0.7)]
+            "
+          >
+            <Instagram size={18} />
+          </button>
+        </div>
 
-            <div className="flex flex-wrap gap-4">
-              <button className="px-10 py-5 rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-600 font-semibold shadow-[0_0_40px_rgba(217,70,239,0.6)] hover:scale-105 transition">
-                Start een Project
-              </button>
+        {/* BADGE */}
+        <div
+          className="
+            absolute
+            top-[220px]
+            left-[120px]
+            px-6
+            py-3
+            rounded-full
+            border
+            border-fuchsia-500/30
+            bg-fuchsia-500/10
+            text-[11px]
+            tracking-[0.35em]
+            text-white/90
+            z-20
+          "
+        >
+          Creatieve Digitale Oplossingen
+        </div>
 
-              <button className="px-10 py-5 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition font-semibold">
-                Bekijk Portfolio
-              </button>
-            </div>
+        {/* TITLE */}
+        <div className="absolute top-[320px] left-[120px] z-20">
+
+          <h2
+            className="
+              text-[96px]
+              leading-[0.80]
+              tracking-[-0.07em]
+              font-black
+            "
+          >
+            MODERNE
+            <br />
+
+            DIGITALE
+            <br />
+
+            IDENTITEITEN
+            <br />
+
+            <span className="bg-gradient-to-r from-purple-300 to-fuchsia-500 bg-clip-text text-transparent">
+              PREMIUM
+            </span>
+          </h2>
+
+          {/* DESCRIPTION */}
+          <p
+            className="
+              mt-8
+              max-w-[520px]
+              text-white/55
+              text-[16px]
+              leading-[1.9]
+            "
+          >
+            Noma helpt Belgische bedrijven groeien met moderne branding,
+            social media beheer en premium digitaal design.
+          </p>
+
+          {/* BUTTONS */}
+          <div className="flex gap-4 mt-10">
+
+            <button
+              className="
+                px-9
+                py-4
+                rounded-full
+                bg-gradient-to-r
+                from-purple-600
+                to-fuchsia-600
+                shadow-[0_0_45px_rgba(217,70,239,0.45)]
+                font-semibold
+              "
+            >
+              Start een Project
+            </button>
+
+            <button
+              className="
+                px-9
+                py-4
+                rounded-full
+                border
+                border-white/10
+                bg-white/[0.03]
+              "
+            >
+              Bekijk Portfolio
+            </button>
           </div>
+        </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="relative flex justify-center">
-            <div className="absolute w-[500px] h-[500px] rounded-[60px] bg-fuchsia-600/30 blur-[100px]" />
+        {/* RIGHT VISUAL */}
+        <div
+          className="
+            absolute
+            top-[120px]
+            right-[110px]
+            w-[560px]
+            h-[620px]
+            bg-[#1f0027]
+          "
+        >
 
-            <div className="relative p-5 rounded-[50px] bg-gradient-to-br from-fuchsia-400 to-violet-700 shadow-[0_0_100px_rgba(192,38,211,0.7)]">
-              <div className="overflow-hidden rounded-[40px] border border-white/10">
-                <img
-                  src="/hero.jpg"
-                  alt="Hero"
-                  className="w-[500px] h-[620px] object-cover hover:scale-105 transition duration-700"
-                />
-              </div>
+          {/* MASSIVE GLOW */}
+          <div className="absolute inset-0 bg-fuchsia-600/20 blur-[120px]" />
+
+          {/* SECOND GLOW */}
+          <div className="absolute -inset-10 bg-fuchsia-500/10 blur-[80px]" />
+
+          {/* INNER FRAME */}
+          <div
+            className="
+              absolute
+              top-[70px]
+              left-[95px]
+              w-[360px]
+              h-[470px]
+              rounded-[36px]
+              bg-[#cb72ff]
+              flex
+              items-center
+              justify-center
+              shadow-[0_0_100px_rgba(217,70,239,0.55)]
+            "
+          >
+
+            {/* IMAGE */}
+            <div
+              className="
+                w-[285px]
+                h-[380px]
+                rounded-[28px]
+                overflow-hidden
+              "
+            >
+
+              <img
+                src="/hero.png"
+                alt="Hero"
+                className="
+                  w-full
+                  h-full
+                  object-cover
+                  object-center
+                "
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section className="relative z-10 py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-fuchsia-400 tracking-[0.4em] uppercase text-sm mb-6">
-            Diensten
-          </p>
+      <section className="max-w-[1450px] mx-auto px-8 -mt-[120px]">
 
-          <h3 className="text-5xl md:text-6xl font-black leading-tight max-w-4xl mb-16">
-            Creatieve oplossingen <br />
-            voor moderne merken.
+        <p className="text-fuchsia-400 tracking-[0.35em] uppercase text-sm">
+          DIENSTEN
+        </p>
+
+        <h3
+          className="
+            text-[58px]
+            leading-[1.02]
+            font-black
+            mt-5
+            max-w-[760px]
+          "
+        >
+          Creatieve oplossingen
+          <br />
+          voor moderne merken.
+        </h3>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+
+          {[
+            "Brand Identity",
+            "Social Media",
+            "Digital Design",
+            "Accounting",
+          ].map((item) => (
+            <div
+              key={item}
+              className="
+                rounded-[30px]
+                border
+                border-white/10
+                bg-white/[0.02]
+                p-7
+                min-h-[260px]
+              "
+            >
+
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-b from-fuchsia-400 to-purple-600 mb-7" />
+
+              <h4 className="text-[28px] font-bold leading-[1.1]">
+                {item}
+              </h4>
+
+              <p className="mt-4 text-white/45 text-[15px] leading-[1.9]">
+                Premium creative solutions for ambitious brands.
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* PORTFOLIO */}
+      <section className="max-w-[1450px] mx-auto px-8 pt-20">
+
+        <p className="text-fuchsia-400 tracking-[0.35em] uppercase text-sm">
+          PORTFOLIO
+        </p>
+
+        <h3 className="text-[58px] leading-[1.02] font-black mt-5">
+          Selected Projects
+        </h3>
+
+        <div className="grid md:grid-cols-2 gap-7 mt-12">
+
+          <div
+            className="
+              h-[290px]
+              rounded-[36px]
+              border
+              border-white/10
+              bg-gradient-to-br
+              from-fuchsia-950
+              to-purple-950
+              flex
+              items-center
+              justify-center
+              text-5xl
+              font-black
+            "
+          >
+            JC Cars
+          </div>
+
+          <div
+            className="
+              h-[290px]
+              rounded-[36px]
+              border
+              border-white/10
+              bg-gradient-to-br
+              from-[#18001f]
+              to-black
+              flex
+              items-center
+              justify-center
+              text-5xl
+              font-black
+            "
+          >
+            NOMA
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="max-w-[1050px] mx-auto px-8 pt-24 pb-28">
+
+        <div
+          className="
+            rounded-[44px]
+            border
+            border-fuchsia-500/20
+            bg-[#0b0011]
+            px-10
+            py-20
+            text-center
+          "
+        >
+
+          <h3
+            className="
+              text-[54px]
+              leading-[1.05]
+              font-black
+              max-w-[760px]
+              mx-auto
+            "
+          >
+            BOUW JOUW DIGITALE
+            <br />
+            AANWEZIGHEID
           </h3>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-            {[
-              {
-                title: "Brand Identity",
-                text: "Modern visual systems designed for ambitious brands.",
-              },
-              {
-                title: "Social Media",
-                text: "Premium content strategy focused on engagement and growth.",
-              },
-              {
-                title: "Digital Design",
-                text: "Ads, visuals and creative direction with cinematic impact.",
-              
-          <button className="px-12 py-5 rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-600 font-semibold shadow-[0_0_50px_rgba(217,70,239,0.7)] hover:scale-105 transition">
+          <p
+            className="
+              mt-6
+              text-white/45
+              max-w-[680px]
+              mx-auto
+              text-[16px]
+              leading-[1.9]
+            "
+          >
+            Modern branding, cinematic visuals and premium digital presence
+            for ambitious businesses.
+          </p>
+
+          <button
+            className="
+              mt-10
+              px-10
+              py-5
+              rounded-full
+              bg-gradient-to-r
+              from-purple-600
+              to-fuchsia-600
+              shadow-[0_0_35px_rgba(217,70,239,0.45)]
+              font-semibold
+            "
+          >
             Contacteer Noma
           </button>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="relative z-10 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-white/40 text-sm">
-            © 2026 NOMA DIGITAL STUDIO • BELGIUM
-          </div>
-
-          <div className="flex items-center gap-5 text-white/40">
-            <Facebook size={18} />
-            <Instagram size={18} />
-          </div>
-        </div>
+      <footer
+        className="
+          border-t
+          border-white/5
+          py-10
+          text-center
+          text-white/20
+          text-sm
+          tracking-[0.25em]
+        "
+      >
+        © 2026 NOMA DIGITAL STUDIO • BELGIUM
       </footer>
     </main>
   )
