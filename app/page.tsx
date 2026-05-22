@@ -96,21 +96,7 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-      <section className="relative z-10">
-        <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT */}
-          <div>
-            {/* SOCIAL */}
-            <div className="flex items-center gap-4 mb-10">
-              <button className="w-12 h-12 rounded-full bg-fuchsia-600/20 border border-fuchsia-500/30 flex items-center justify-center hover:scale-110 transition">
-                <Facebook size={20} />
-              </button>
-
-              <button className="w-12 h-12 rounded-full bg-fuchsia-600/20 border border-fuchsia-500/30 flex items-center justify-center hover:scale-110 transition">
-                <Instagram size={20} />
-              </button>
-            </div>
-
+      
             <div className="inline-flex px-5 py-2 rounded-full border border-fuchsia-500/30 bg-fuchsia-500/10 text-fuchsia-300 text-sm mb-8 tracking-widest uppercase">
               Creative Digitale Oplossingen
             </div>
@@ -183,78 +169,7 @@ export default function Home() {
               {
                 title: "Digital Design",
                 text: "Ads, visuals and creative direction with cinematic impact.",
-              },
-              {
-                title: "Motion Graphics",
-                text: "High-end animations and visual storytelling for brands.",
-              },
-            ].map((service) => (
-              <div
-                key={service.title}
-                className="group bg-white/[0.03] border border-white/10 rounded-[36px] p-8 hover:border-fuchsia-500/40 hover:bg-fuchsia-500/[0.03] transition-all duration-500"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-violet-700 mb-10 shadow-[0_0_40px_rgba(217,70,239,0.5)]" />
-
-                <h4 className="text-3xl font-bold mb-5">
-                  {service.title}
-                </h4>
-
-                <p className="text-white/50 leading-relaxed">
-                  {service.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PORTFOLIO */}
-      <section className="relative z-10 py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-fuchsia-400 tracking-[0.4em] uppercase text-sm mb-6">
-            Portfolio
-          </p>
-
-          <h3 className="text-5xl md:text-6xl font-black mb-16">
-            Selected Projects
-          </h3>
-
-          <div className="grid lg:grid-cols-2 gap-10">
-            {["JC Cars", "NOMA"].map((project) => (
-              <div
-                key={project}
-                className="relative overflow-hidden rounded-[40px] border border-white/10 h-[320px] bg-gradient-to-br from-fuchsia-950 via-black to-violet-950 group"
-              >
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-fuchsia-600/10" />
-
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <h4 className="text-5xl font-black tracking-wide">
-                    {project}
-                  </h4>
-                </div>
-
-                <div className="absolute bottom-8 right-8 w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-fuchsia-600 transition">
-                  <ArrowRight />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="relative z-10 py-40">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-          <h3 className="text-5xl md:text-7xl font-black leading-tight mb-8">
-            BOUW JOUW DIGITALE <br />
-            AANWEZIGHEID
-          </h3>
-
-          <p className="text-white/50 max-w-2xl mx-auto mb-12 text-lg">
-            Moderne branding, cinematic visuals and premium digital presence
-            for ambitious businesses.
-          </p>
-
+              
           <button className="px-12 py-5 rounded-full bg-gradient-to-r from-fuchsia-600 to-violet-600 font-semibold shadow-[0_0_50px_rgba(217,70,239,0.7)] hover:scale-105 transition">
             Contacteer Noma
           </button>
