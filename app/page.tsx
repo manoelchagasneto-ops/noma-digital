@@ -3,78 +3,54 @@
 import { useEffect, useState } from "react"
 
 export default function Home() {
-  const [mousePosition, setMousePosition] =
-    useState({
-      x: 0,
-      y: 0,
-    })
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  })
 
-  const [particles, setParticles] =
-    useState<any[]>([])
-
-  const [language, setLanguage] =
-    useState("NL")
-
-  const [mobileMenu, setMobileMenu] =
-    useState(false)
+  const [particles, setParticles] = useState<any[]>([])
+  const [language, setLanguage] = useState("NL")
+  const [mobileMenu, setMobileMenu] = useState(false)
 
   useEffect(() => {
-    const handleMouseMove = (
-      e: MouseEvent
-    ) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
         x: e.clientX,
         y: e.clientY,
       })
     }
 
-    window.addEventListener(
-      "mousemove",
-      handleMouseMove
-    )
+    window.addEventListener("mousemove", handleMouseMove)
 
     return () => {
-      window.removeEventListener(
-        "mousemove",
-        handleMouseMove
-      )
+      window.removeEventListener("mousemove", handleMouseMove)
     }
   }, [])
 
   useEffect(() => {
-    const generatedParticles =
-      Array.from({
-        length: 28,
-      }).map((_, i) => ({
-        id: i,
-        size:
-          Math.random() * 6 + 2,
-        left:
-          Math.random() * 100,
-        duration:
-          Math.random() * 20 + 10,
-        delay:
-          Math.random() * 10,
-        opacity:
-          Math.random() * 0.5 + 0.1,
-      }))
+    const generatedParticles = Array.from({
+      length: 28,
+    }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 6 + 2,
+      left: Math.random() * 100,
+      duration: Math.random() * 20 + 10,
+      delay: Math.random() * 10,
+      opacity: Math.random() * 0.5 + 0.1,
+    }))
 
-    setParticles(
-      generatedParticles
-    )
+    setParticles(generatedParticles)
   }, [])
 
   const t =
     language === "NL"
       ? {
           services: "Diensten",
-          portfolio:
-            "Bekijk Portfolio",
-          contact:
-            "Contacteer Noma",
+          portfolio: "Bekijk Portfolio",
+          about: "Over Noma",
+          contact: "Contacteer Noma",
 
-          badge:
-            "Creative Digitale Oplossingen",
+          badge: "Creative Digitale Oplossingen",
 
           title1: "Moderne",
           title2: "Digitale",
@@ -83,42 +59,43 @@ export default function Home() {
           description:
             "Noma helpt Belgische bedrijven groeien met moderne branding, social media beheer en premium digitaal design.",
 
-          start:
-            "Start een Project",
+          start: "Start een Project",
+          view: "Bekijk Portfolio",
 
-          view:
-            "Bekijk Portfolio",
+          servicesTitle1: "Creatieve oplossingen",
+          servicesTitle2: "voor moderne merken.",
 
-          servicesTitle1:
-            "Creatieve oplossingen",
+          portfolioTitle: "Selected Projects",
+          portfolioProject: "Bekijk Project →",
 
-          servicesTitle2:
-            "voor moderne merken.",
+          aboutTag: "OVER NOMA",
+          aboutTitle: "Wie wij zijn.",
+          aboutText:
+            "Noma Digital helpt Belgische bedrijven groeien met een sterke digitale identiteit. Wij combineren branding, social media, digitaal design en administratieve ondersteuning om bedrijven professioneel en consistent te laten groeien. Wij geloven dat een sterk merk begint met een duidelijke strategie en een moderne online aanwezigheid.",
 
-          portfolioTitle:
-            "Selected Projects",
-
-          ctaTitle1:
-            "BOUW JOUW DIGITALE",
-
-          ctaTitle2:
-            "AANWEZIGHEID",
+          ctaTitle1: "BOUW JOUW DIGITALE",
+          ctaTitle2: "AANWEZIGHEID",
 
           ctaDescription:
             "Modern branding, cinematic visuals and premium digital presence for ambitious businesses.",
 
-          ctaButton:
-            "Contacteer Noma",
+          ctaButton: "Contacteer Noma",
+
+          footerText:
+            "Creatieve digitale oplossingen voor Belgische bedrijven.",
+
+          footerNavigation: "Navigatie",
+          footerServices: "Diensten",
+          footerFollow: "Volg Noma",
+          rights: "Alle rechten voorbehouden.",
         }
       : {
           services: "Services",
-          portfolio:
-            "View Portfolio",
-          contact:
-            "Contact Noma",
+          portfolio: "View Portfolio",
+          about: "About Noma",
+          contact: "Contact Noma",
 
-          badge:
-            "Creative Digital Solutions",
+          badge: "Creative Digital Solutions",
 
           title1: "Modern",
           title2: "Digital",
@@ -127,68 +104,63 @@ export default function Home() {
           description:
             "Noma helps businesses grow with modern branding, social media management and premium digital design.",
 
-          start:
-            "Start a Project",
+          start: "Start a Project",
+          view: "View Portfolio",
 
-          view:
-            "View Portfolio",
+          servicesTitle1: "Creative solutions",
+          servicesTitle2: "for modern brands.",
 
-          servicesTitle1:
-            "Creative solutions",
+          portfolioTitle: "Selected Projects",
+          portfolioProject: "View Project →",
 
-          servicesTitle2:
-            "for modern brands.",
+          aboutTag: "ABOUT NOMA",
+          aboutTitle: "Who we are.",
+          aboutText:
+            "Noma Digital helps businesses grow through a strong digital identity. We combine branding, social media, digital design and administrative support to help companies build a professional and consistent presence. We believe every successful brand starts with a clear strategy and a modern online experience.",
 
-          portfolioTitle:
-            "Selected Projects",
-
-          ctaTitle1:
-            "BUILD YOUR DIGITAL",
-
-          ctaTitle2:
-            "PRESENCE",
+          ctaTitle1: "BUILD YOUR DIGITAL",
+          ctaTitle2: "PRESENCE",
 
           ctaDescription:
             "Modern branding, cinematic visuals and premium digital presence for ambitious businesses.",
 
-          ctaButton:
-            "Contact Noma",
+          ctaButton: "Contact Noma",
+
+          footerText:
+            "Creative digital solutions for ambitious businesses.",
+
+          footerNavigation: "Navigation",
+          footerServices: "Services",
+          footerFollow: "Follow Noma",
+          rights: "All rights reserved.",
         }
 
   return (
     <main className="main">
-
       {/* PARTICLES */}
       <div className="particles">
-        {particles.map(
-          (particle) => (
-            <span
-              key={particle.id}
-              className="particle"
-              style={{
-                width:
-                  particle.size,
-                height:
-                  particle.size,
-                left: `${particle.left}%`,
-                animationDuration: `${particle.duration}s`,
-                animationDelay: `${particle.delay}s`,
-                opacity:
-                  particle.opacity,
-              }}
-            />
-          )
-        )}
+        {particles.map((particle) => (
+          <span
+            key={particle.id}
+            className="particle"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.left}%`,
+              animationDuration: `${particle.duration}s`,
+              animationDelay: `${particle.delay}s`,
+              opacity: particle.opacity,
+            }}
+          />
+        ))}
       </div>
 
       {/* MOUSE LIGHT */}
       <div
         className="mouseLight"
         style={{
-          left:
-            mousePosition.x - 180,
-          top:
-            mousePosition.y - 180,
+          left: mousePosition.x - 180,
+          top: mousePosition.y - 180,
         }}
       />
 
@@ -197,66 +169,47 @@ export default function Home() {
       {/* HEADER */}
       <header className="header">
         <div className="headerContent">
-
           <div className="logoWrapper">
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="logo"
-            />
+            <img src="/logo.png" alt="Noma Digital" className="logo" />
 
             <div>
-              <h1 className="logoTitle">
-                NOMA
-              </h1>
+              <h1 className="logoTitle">NOMA</h1>
 
-              <p className="logoSub">
-                DIGITAL SOLUTIONS
-              </p>
+              <p className="logoSub">DIGITAL SOLUTIONS</p>
             </div>
           </div>
 
           <div className="desktopMenu">
             <a href="#services">
-              <button style={menuButton}>
-                {t.services}
-              </button>
+              <button style={menuButton}>{t.services}</button>
             </a>
 
             <a href="#portfolio">
-              <button style={menuButton}>
-                {t.portfolio}
-              </button>
+              <button style={menuButton}>{t.portfolio}</button>
+            </a>
+
+            <a href="#about">
+              <button style={menuButton}>{t.about}</button>
             </a>
 
             <a href="#contact">
-              <button style={menuButton}>
-                {t.contact}
-              </button>
+              <button style={menuButton}>{t.contact}</button>
             </a>
 
             <div className="langBox">
               <button
-                onClick={() =>
-                  setLanguage("NL")
-                }
+                onClick={() => setLanguage("NL")}
                 className={
-                  language === "NL"
-                    ? "langActive"
-                    : "langButton"
+                  language === "NL" ? "langActive" : "langButton"
                 }
               >
                 NL
               </button>
 
               <button
-                onClick={() =>
-                  setLanguage("EN")
-                }
+                onClick={() => setLanguage("EN")}
                 className={
-                  language === "EN"
-                    ? "langActive"
-                    : "langButton"
+                  language === "EN" ? "langActive" : "langButton"
                 }
               >
                 EN
@@ -266,11 +219,7 @@ export default function Home() {
 
           <button
             className="mobileMenuButton"
-            onClick={() =>
-              setMobileMenu(
-                !mobileMenu
-              )
-            }
+            onClick={() => setMobileMenu(!mobileMenu)}
           >
             ☰
           </button>
@@ -278,39 +227,23 @@ export default function Home() {
 
         {mobileMenu && (
           <div className="mobileMenu">
-            <a href="#services">
-              {t.services}
-            </a>
-
-            <a href="#portfolio">
-              {t.portfolio}
-            </a>
-
-            <a href="#contact">
-              {t.contact}
-            </a>
+            <a href="#services">{t.services}</a>
+            <a href="#portfolio">{t.portfolio}</a>
+            <a href="#about">{t.about}</a>
+            <a href="#contact">{t.contact}</a>
           </div>
         )}
       </header>
 
       {/* HERO */}
       <section className="hero">
-
         <div className="heroLeft">
-
           <div className="socials">
-            <div style={socialButton}>
-              f
-            </div>
-
-            <div style={socialButton}>
-              ◎
-            </div>
+            <div style={socialButton}>f</div>
+            <div style={socialButton}>◎</div>
           </div>
 
-          <div className="badge">
-            {t.badge}
-          </div>
+          <div className="badge">{t.badge}</div>
 
           <h2 className="heroTitle">
             {t.title1}
@@ -320,48 +253,30 @@ export default function Home() {
             {t.title3}
             <br />
 
-            <span className="gradientText">
-              Premium
-            </span>
+            <span className="gradientText">Premium</span>
           </h2>
 
-          <p className="heroDesc">
-            {t.description}
-          </p>
+          <p className="heroDesc">{t.description}</p>
 
           <div className="heroButtons">
-            <button style={primaryButton}>
-              {t.start}
-            </button>
+            <button style={primaryButton}>{t.start}</button>
 
-            <button style={secondaryButton}>
-              {t.view}
-            </button>
+            <button style={secondaryButton}>{t.view}</button>
           </div>
         </div>
 
         <div className="heroRight">
-
           <div className="imageGlow" />
 
           <div className="imageBox">
-            <img
-              src="/hero.png"
-              alt="Hero"
-              className="heroImage"
-            />
+            <img src="/hero.png" alt="Noma Digital" className="heroImage" />
           </div>
         </div>
       </section>
 
       {/* SERVICES */}
-      <section
-        id="services"
-        className="section"
-      >
-        <p className="sectionTag">
-          {t.services}
-        </p>
+      <section id="services" className="section">
+        <p className="sectionTag">{t.services}</p>
 
         <h3 className="sectionTitle">
           {t.servicesTitle1}
@@ -370,18 +285,13 @@ export default function Home() {
         </h3>
 
         <div className="servicesGrid">
-
           <div className="serviceCard">
             <div className="serviceIcon" />
 
-            <h4>
-              Brand Identity
-            </h4>
+            <h4>Brand Identity</h4>
 
             <p>
-              Premium branding
-              strategy for modern
-              businesses and strong
+              Premium branding strategy for modern businesses and strong
               digital positioning.
             </p>
           </div>
@@ -389,14 +299,10 @@ export default function Home() {
           <div className="serviceCard">
             <div className="serviceIcon" />
 
-            <h4>
-              Social Media
-            </h4>
+            <h4>Social Media</h4>
 
             <p>
-              Creative content and
-              visual storytelling
-              focused on engagement
+              Creative content and visual storytelling focused on engagement
               and growth.
             </p>
           </div>
@@ -404,14 +310,10 @@ export default function Home() {
           <div className="serviceCard">
             <div className="serviceIcon" />
 
-            <h4>
-              Digital Design
-            </h4>
+            <h4>Digital Design</h4>
 
             <p>
-              Cinematic visuals and
-              premium interfaces for
-              brands that want
+              Cinematic visuals and premium interfaces for brands that want
               impact.
             </p>
           </div>
@@ -419,51 +321,72 @@ export default function Home() {
           <div className="serviceCard">
             <div className="serviceIcon" />
 
-            <h4>
-              Accounting
-            </h4>
+            <h4>Accounting</h4>
 
             <p>
-              Professional accounting
-              solutions for modern
-              businesses with
-              organization, strategy
-              and trust.
+              Professional accounting solutions for modern businesses with
+              organization, strategy and trust.
             </p>
           </div>
-
         </div>
       </section>
 
       {/* PORTFOLIO */}
-      <section
-        id="portfolio"
-        className="section"
-      >
-        <p className="sectionTag">
-          PORTFOLIO
-        </p>
+      <section id="portfolio" className="section">
+        <p className="sectionTag">PORTFOLIO</p>
 
-        <h3 className="sectionTitle">
-          {t.portfolioTitle}
-        </h3>
+        <h3 className="sectionTitle">{t.portfolioTitle}</h3>
 
         <div className="portfolioGrid">
           <div className="portfolioCard">
-            JC Cars
+            <div>
+              <span className="portfolioCategory">
+                Automotive Marketing
+              </span>
+
+              <h3>JC Cars</h3>
+
+              <p>
+                Social Media Management, Graphic Design and Content Creation.
+              </p>
+
+              <span className="portfolioLink">
+                {t.portfolioProject}
+              </span>
+            </div>
           </div>
 
           <div className="portfolioCard">
-            NOMA
+            <div>
+              <span className="portfolioCategory">Creative Agency</span>
+
+              <h3>NOMA</h3>
+
+              <p>
+                Brand Identity, Website Design and Digital Strategy.
+              </p>
+
+              <span className="portfolioLink">
+                {t.portfolioProject}
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* ABOUT */}
+      <section id="about" className="section">
+        <p className="sectionTag">{t.aboutTag}</p>
+
+        <h3 className="sectionTitle">{t.aboutTitle}</h3>
+
+        <div className="aboutBox">
+          <p>{t.aboutText}</p>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section
-        id="contact"
-        className="ctaSection"
-      >
+      <section id="contact" className="ctaSection">
         <div className="ctaBox">
           <h2 className="ctaTitle">
             {t.ctaTitle1}
@@ -471,17 +394,65 @@ export default function Home() {
             {t.ctaTitle2}
           </h2>
 
-          <p className="ctaDesc">
-            {t.ctaDescription}
-          </p>
+          <p className="ctaDesc">{t.ctaDescription}</p>
 
-          <button className="ctaButton">
-            {t.ctaButton}
-          </button>
+          <button className="ctaButton">{t.ctaButton}</button>
         </div>
       </section>
 
+      {/* FOOTER */}
+      <footer className="footer">
+        <div className="footerGrid">
+          <div className="footerBrand">
+            <img
+              src="/logo.png"
+              alt="Noma Digital"
+              className="footerLogo"
+            />
+
+            <h3>NOMA</h3>
+
+            <p>{t.footerText}</p>
+          </div>
+
+          <div className="footerColumn">
+            <h4>{t.footerNavigation}</h4>
+
+            <a href="#services">{t.services}</a>
+            <a href="#portfolio">{t.portfolio}</a>
+            <a href="#about">{t.about}</a>
+            <a href="#contact">{t.contact}</a>
+          </div>
+
+          <div className="footerColumn">
+            <h4>{t.footerServices}</h4>
+
+            <span>Brand Identity</span>
+            <span>Social Media</span>
+            <span>Digital Design</span>
+            <span>Administrative Support</span>
+          </div>
+
+          <div className="footerColumn">
+            <h4>{t.footerFollow}</h4>
+
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+          </div>
+        </div>
+
+        <div className="footerBottom">
+          <span>© 2026 Noma Digital</span>
+          <span>{t.rights}</span>
+        </div>
+      </footer>
+
       <style jsx>{`
+        html {
+          scroll-behavior: smooth;
+        }
+
         .main {
           background: #000;
           min-height: 100vh;
@@ -503,29 +474,10 @@ export default function Home() {
           position: absolute;
           bottom: -20px;
           border-radius: 999px;
-          background: rgba(
-            217,
-            70,
-            239,
-            0.9
-          );
-
+          background: rgba(217, 70, 239, 0.9);
           box-shadow:
-            0 0 20px
-              rgba(
-                217,
-                70,
-                239,
-                0.8
-              ),
-            0 0 60px
-              rgba(
-                217,
-                70,
-                239,
-                0.4
-              );
-
+            0 0 20px rgba(217, 70, 239, 0.8),
+            0 0 60px rgba(217, 70, 239, 0.4);
           animation-name: float;
           animation-timing-function: linear;
           animation-iteration-count: infinite;
@@ -533,22 +485,15 @@ export default function Home() {
 
         @keyframes float {
           0% {
-            transform: translateY(0)
-              translateX(0);
+            transform: translateY(0) translateX(0);
           }
 
           50% {
-            transform: translateY(
-                -50vh
-              )
-              translateX(40px);
+            transform: translateY(-50vh) translateX(40px);
           }
 
           100% {
-            transform: translateY(
-                -110vh
-              )
-              translateX(-30px);
+            transform: translateY(-110vh) translateX(-30px);
           }
         }
 
@@ -559,10 +504,8 @@ export default function Home() {
           border-radius: 999px;
           background: radial-gradient(
             circle,
-            rgba(217, 70, 239, 0.22)
-              0%,
-            rgba(217, 70, 239, 0)
-              70%
+            rgba(217, 70, 239, 0.22) 0%,
+            rgba(217, 70, 239, 0) 70%
           );
           pointer-events: none;
           z-index: 1;
@@ -582,8 +525,7 @@ export default function Home() {
         }
 
         .header {
-          border-bottom: 1px solid
-            rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
           position: relative;
           z-index: 2;
         }
@@ -618,12 +560,7 @@ export default function Home() {
           margin-top: 8px;
           font-size: 11px;
           letter-spacing: 0.45em;
-          color: rgba(
-            255,
-            255,
-            255,
-            0.45
-          );
+          color: rgba(255, 255, 255, 0.45);
         }
 
         .desktopMenu {
@@ -636,12 +573,7 @@ export default function Home() {
           display: flex;
           padding: 4px;
           border-radius: 999px;
-          background: rgba(
-            255,
-            255,
-            255,
-            0.03
-          );
+          background: rgba(255, 255, 255, 0.03);
         }
 
         .langButton,
@@ -655,12 +587,7 @@ export default function Home() {
 
         .langButton {
           background: transparent;
-          color: rgba(
-            255,
-            255,
-            255,
-            0.45
-          );
+          color: rgba(255, 255, 255, 0.45);
         }
 
         .langActive {
@@ -698,14 +625,8 @@ export default function Home() {
           display: inline-block;
           padding: 16px 30px;
           border-radius: 999px;
-          border: 1px solid
-            rgba(217,70,239,0.3);
-          background: rgba(
-            217,
-            70,
-            239,
-            0.08
-          );
+          border: 1px solid rgba(217, 70, 239, 0.3);
+          background: rgba(217, 70, 239, 0.08);
           font-size: 12px;
           letter-spacing: 0.35em;
           margin-bottom: 38px;
@@ -720,12 +641,7 @@ export default function Home() {
         }
 
         .gradientText {
-          background: linear-gradient(
-            to right,
-            #c084fc,
-            #d946ef
-          );
-
+          background: linear-gradient(to right, #c084fc, #d946ef);
           -webkit-background-clip: text;
           color: transparent;
         }
@@ -734,12 +650,7 @@ export default function Home() {
           margin-top: 42px;
           font-size: 22px;
           line-height: 1.7;
-          color: rgba(
-            255,
-            255,
-            255,
-            0.58
-          );
+          color: rgba(255, 255, 255, 0.58);
         }
 
         .heroButtons {
@@ -770,14 +681,9 @@ export default function Home() {
           height: 650px;
           border-radius: 48px;
           padding: 22px;
-          background: linear-gradient(
-            to bottom right,
-            #f0abfc,
-            #a21caf
-          );
+          background: linear-gradient(to bottom right, #f0abfc, #a21caf);
           overflow: hidden;
-          box-shadow: 0 0 90px
-            rgba(217,70,239,0.55);
+          box-shadow: 0 0 90px rgba(217, 70, 239, 0.55);
         }
 
         .heroImage {
@@ -815,40 +721,28 @@ export default function Home() {
 
         .servicesGrid {
           display: grid;
-          grid-template-columns:
-            repeat(4,1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 24px;
         }
 
         .serviceCard {
-          border: 1px solid
-            rgba(255,255,255,0.08);
+          border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 28px;
           padding: 38px;
-          background: rgba(
-            255,
-            255,
-            255,
-            0.02
-          );
+          background: rgba(255, 255, 255, 0.02);
         }
 
         .serviceIcon {
           width: 32px;
           height: 52px;
           border-radius: 10px;
-          background: linear-gradient(
-            to bottom,
-            #d946ef,
-            #9333ea
-          );
+          background: linear-gradient(to bottom, #d946ef, #9333ea);
           margin-bottom: 28px;
         }
 
         .portfolioGrid {
           display: grid;
-          grid-template-columns:
-            repeat(2,1fr);
+          grid-template-columns: repeat(2, 1fr);
           gap: 28px;
         }
 
@@ -856,17 +750,57 @@ export default function Home() {
           height: 320px;
           border-radius: 36px;
           display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 54px;
-          font-weight: 800;
-          background: linear-gradient(
-            to bottom right,
-            #35003f,
-            #05000f
-          );
-          border: 1px solid
-            rgba(255,255,255,0.08);
+          align-items: flex-end;
+          justify-content: flex-start;
+          padding: 40px;
+          background: linear-gradient(to bottom right, #35003f, #05000f);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          transition: 0.35s;
+        }
+
+        .portfolioCard:hover {
+          transform: translateY(-8px);
+          border-color: rgba(217, 70, 239, 0.35);
+        }
+
+        .portfolioCategory {
+          color: #d946ef;
+          font-size: 13px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+        }
+
+        .portfolioCard h3 {
+          font-size: 40px;
+          margin: 18px 0;
+        }
+
+        .portfolioCard p {
+          color: rgba(255, 255, 255, 0.65);
+          line-height: 1.7;
+          max-width: 360px;
+        }
+
+        .portfolioLink {
+          display: inline-block;
+          margin-top: 28px;
+          font-weight: 700;
+          color: #d946ef;
+        }
+
+        .aboutBox {
+          max-width: 900px;
+          padding: 55px;
+          border-radius: 36px;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .aboutBox p {
+          margin: 0;
+          font-size: 22px;
+          line-height: 1.8;
+          color: rgba(255, 255, 255, 0.75);
         }
 
         .ctaSection {
@@ -881,13 +815,8 @@ export default function Home() {
           border-radius: 44px;
           padding: 90px 60px;
           text-align: center;
-          background: linear-gradient(
-            to bottom right,
-            #1a0026,
-            #070015
-          );
-          border: 1px solid
-            rgba(217,70,239,0.18);
+          background: linear-gradient(to bottom right, #1a0026, #070015);
+          border: 1px solid rgba(217, 70, 239, 0.18);
         }
 
         .ctaTitle {
@@ -897,12 +826,7 @@ export default function Home() {
 
         .ctaDesc {
           margin-top: 30px;
-          color: rgba(
-            255,
-            255,
-            255,
-            0.55
-          );
+          color: rgba(255, 255, 255, 0.55);
           line-height: 1.8;
         }
 
@@ -911,19 +835,79 @@ export default function Home() {
           padding: 22px 42px;
           border-radius: 999px;
           border: none;
-          background: linear-gradient(
-            to right,
-            #7e22ce,
-            #d946ef
-          );
+          background: linear-gradient(to right, #7e22ce, #d946ef);
           color: white;
           font-weight: 700;
           font-size: 18px;
           cursor: pointer;
         }
 
-        @media (max-width:1100px) {
+        .footer {
+          position: relative;
+          z-index: 2;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 80px 60px 35px;
+        }
 
+        .footerGrid {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 2fr 1fr 1fr 1fr;
+          gap: 60px;
+        }
+
+        .footerLogo {
+          width: 70px;
+          margin-bottom: 20px;
+        }
+
+        .footerBrand h3 {
+          font-size: 34px;
+          letter-spacing: 0.3em;
+          margin: 0 0 20px;
+        }
+
+        .footerBrand p {
+          color: rgba(255, 255, 255, 0.55);
+          line-height: 1.7;
+          max-width: 300px;
+        }
+
+        .footerColumn {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .footerColumn h4 {
+          color: #d946ef;
+          margin-bottom: 12px;
+        }
+
+        .footerColumn a,
+        .footerColumn span {
+          color: rgba(255, 255, 255, 0.6);
+          text-decoration: none;
+          transition: 0.3s;
+        }
+
+        .footerColumn a:hover {
+          color: #d946ef;
+        }
+
+        .footerBottom {
+          max-width: 1400px;
+          margin: 70px auto 0;
+          padding-top: 30px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          display: flex;
+          justify-content: space-between;
+          color: rgba(255, 255, 255, 0.35);
+          font-size: 14px;
+        }
+
+        @media (max-width: 1100px) {
           .desktopMenu {
             display: none;
           }
@@ -974,11 +958,9 @@ export default function Home() {
             height: 520px;
           }
 
-          .servicesGrid {
-            grid-template-columns: 1fr;
-          }
-
-          .portfolioGrid {
+          .servicesGrid,
+          .portfolioGrid,
+          .footerGrid {
             grid-template-columns: 1fr;
           }
 
@@ -988,6 +970,14 @@ export default function Home() {
 
           .sectionTitle {
             font-size: 46px;
+          }
+
+          .aboutBox {
+            padding: 35px 28px;
+          }
+
+          .aboutBox p {
+            font-size: 18px;
           }
 
           .ctaBox {
@@ -1018,6 +1008,15 @@ export default function Home() {
           .particle {
             opacity: 0.12 !important;
           }
+
+          .footer {
+            padding: 60px 24px 30px;
+          }
+
+          .footerBottom {
+            flex-direction: column;
+            gap: 12px;
+          }
         }
       `}</style>
     </main>
@@ -1027,10 +1026,8 @@ export default function Home() {
 const menuButton = {
   padding: "16px 28px",
   borderRadius: "999px",
-  border:
-    "1px solid rgba(255,255,255,0.08)",
-  background:
-    "rgba(255,255,255,0.03)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  background: "rgba(255,255,255,0.03)",
   color: "#fff",
   cursor: "pointer",
   fontSize: "15px",
@@ -1040,15 +1037,12 @@ const socialButton = {
   width: "48px",
   height: "48px",
   borderRadius: "999px",
-  background:
-    "rgba(217,70,239,0.15)",
-  border:
-    "1px solid rgba(217,70,239,0.45)",
+  background: "rgba(217,70,239,0.15)",
+  border: "1px solid rgba(217,70,239,0.45)",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  boxShadow:
-    "0 0 30px rgba(217,70,239,0.45)",
+  boxShadow: "0 0 30px rgba(217,70,239,0.45)",
   fontSize: "20px",
   color: "#fff",
 }
@@ -1057,8 +1051,7 @@ const primaryButton = {
   padding: "22px 42px",
   borderRadius: "999px",
   border: "none",
-  background:
-    "linear-gradient(to right,#7e22ce,#d946ef)",
+  background: "linear-gradient(to right,#7e22ce,#d946ef)",
   color: "#fff",
   fontWeight: 700,
   fontSize: "18px",
@@ -1068,10 +1061,8 @@ const primaryButton = {
 const secondaryButton = {
   padding: "22px 42px",
   borderRadius: "999px",
-  border:
-    "1px solid rgba(255,255,255,0.08)",
-  background:
-    "rgba(255,255,255,0.03)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  background: "rgba(255,255,255,0.03)",
   color: "#fff",
   fontSize: "18px",
   cursor: "pointer",
