@@ -12,6 +12,14 @@ export default function Home() {
   const [language, setLanguage] = useState("NL")
   const [mobileMenu, setMobileMenu] = useState(false)
 
+  const facebookUrl = "https://www.facebook.com/nomadigitalsolutions/"
+  const whatsappUrl = "https://wa.me/32469712440"
+  const whatsappProjectUrl =
+    language === "NL"
+      ? "https://wa.me/32469712440?text=Hallo%21%20Ik%20heb%20de%20website%20van%20Noma%20Digital%20bezocht%20en%20ik%20wil%20graag%20meer%20informatie%20over%20jullie%20diensten."
+      : "https://wa.me/32469712440?text=Hello%21%20I%20visited%20the%20Noma%20Digital%20website%20and%20I%20would%20like%20more%20information%20about%20your%20services."
+  const emailUrl = "mailto:contact@nomadigital.be"
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({
@@ -192,7 +200,7 @@ export default function Home() {
               <button style={menuButton}>{t.about}</button>
             </a>
 
-            <a href="#contact">
+            <a href={whatsappProjectUrl} target="_blank" rel="noopener noreferrer">
               <button style={menuButton}>{t.contact}</button>
             </a>
 
@@ -230,7 +238,7 @@ export default function Home() {
             <a href="#services">{t.services}</a>
             <a href="#portfolio">{t.portfolio}</a>
             <a href="#about">{t.about}</a>
-            <a href="#contact">{t.contact}</a>
+            <a href={whatsappProjectUrl} target="_blank" rel="noopener noreferrer">{t.contact}</a>
           </div>
         )}
       </header>
@@ -239,8 +247,12 @@ export default function Home() {
       <section className="hero">
         <div className="heroLeft">
           <div className="socials">
-            <div style={socialButton}>f</div>
-            <div style={socialButton}>◎</div>
+            <a href={facebookUrl} target="_blank" rel="noopener noreferrer" style={socialButton} aria-label="Facebook Noma Digital">
+              f
+            </a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" style={socialButton} aria-label="WhatsApp Noma Digital">
+              WA
+            </a>
           </div>
 
           <div className="badge">{t.badge}</div>
@@ -259,9 +271,13 @@ export default function Home() {
           <p className="heroDesc">{t.description}</p>
 
           <div className="heroButtons">
-            <button style={primaryButton}>{t.start}</button>
+            <a href={whatsappProjectUrl} target="_blank" rel="noopener noreferrer" style={{ ...primaryButton, textDecoration: "none", display: "inline-block" }}>
+              {t.start}
+            </a>
 
-            <button style={secondaryButton}>{t.view}</button>
+            <a href="#portfolio" style={{ ...secondaryButton, textDecoration: "none", display: "inline-block" }}>
+              {t.view}
+            </a>
           </div>
         </div>
 
@@ -424,7 +440,9 @@ export default function Home() {
 
           <p className="ctaDesc">{t.ctaDescription}</p>
 
-          <button className="ctaButton">{t.ctaButton}</button>
+          <a href={whatsappProjectUrl} target="_blank" rel="noopener noreferrer" className="ctaButton">
+            {t.ctaButton}
+          </a>
         </div>
       </section>
 
@@ -891,6 +909,8 @@ export default function Home() {
           font-weight: 700;
           font-size: 18px;
           cursor: pointer;
+          display: inline-block;
+          text-decoration: none;
         }
 
         .footer {
@@ -1096,6 +1116,7 @@ const socialButton = {
   boxShadow: "0 0 30px rgba(217,70,239,0.45)",
   fontSize: "20px",
   color: "#fff",
+  textDecoration: "none",
 }
 
 const primaryButton = {
