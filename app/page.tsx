@@ -286,7 +286,13 @@ export default function Home() {
 
         <div className="servicesGrid">
           <div className="serviceCard">
-            <div className="serviceIcon" />
+            <div className="serviceIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 20l4.8-1.2L19 8.6a2.1 2.1 0 0 0 0-3L18.4 5a2.1 2.1 0 0 0-3 0L5.2 15.2 4 20Z" />
+                <path d="m13.8 6.6 3.6 3.6" />
+                <path d="M4.8 16.2 7.8 19.2" />
+              </svg>
+            </div>
 
             <h4>Brand Identity</h4>
 
@@ -297,7 +303,15 @@ export default function Home() {
           </div>
 
           <div className="serviceCard">
-            <div className="serviceIcon" />
+            <div className="serviceIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="7" y="2.5" width="10" height="19" rx="2.2" />
+                <path d="M10 5.5h4" />
+                <path d="M10.5 18.5h3" />
+                <path d="M9.5 10.5h5" />
+                <path d="M9.5 13.5h3.5" />
+              </svg>
+            </div>
 
             <h4>Social Media</h4>
 
@@ -308,7 +322,14 @@ export default function Home() {
           </div>
 
           <div className="serviceCard">
-            <div className="serviceIcon" />
+            <div className="serviceIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="13" rx="2.2" />
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+                <path d="m9 8 6 3-3 1-1 3-2-7Z" />
+              </svg>
+            </div>
 
             <h4>Digital Design</h4>
 
@@ -319,7 +340,14 @@ export default function Home() {
           </div>
 
           <div className="serviceCard">
-            <div className="serviceIcon" />
+            <div className="serviceIcon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 3.5h14v17H5z" />
+                <path d="M8 7h8" />
+                <path d="M8 11h2M14 11h2M8 15h2M14 15h2" />
+                <path d="M8 18h8" />
+              </svg>
+            </div>
 
             <h4>Accounting</h4>
 
@@ -733,11 +761,34 @@ export default function Home() {
         }
 
         .serviceIcon {
-          width: 32px;
-          height: 52px;
-          border-radius: 10px;
-          background: linear-gradient(to bottom, #d946ef, #9333ea);
+          width: 46px;
+          height: 46px;
+          border-radius: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           margin-bottom: 28px;
+          color: #d946ef;
+          background: linear-gradient(
+            145deg,
+            rgba(217, 70, 239, 0.14),
+            rgba(147, 51, 234, 0.05)
+          );
+          border: 1px solid rgba(217, 70, 239, 0.28);
+          box-shadow:
+            0 0 18px rgba(217, 70, 239, 0.12),
+            inset 0 0 14px rgba(147, 51, 234, 0.05);
+        }
+
+        .serviceIcon svg {
+          width: 25px;
+          height: 25px;
+          fill: none;
+          stroke: currentColor;
+          stroke-width: 1.6;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+          filter: drop-shadow(0 0 5px rgba(217, 70, 239, 0.28));
         }
 
         .portfolioGrid {
